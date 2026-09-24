@@ -1,0 +1,2869 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO Meta Tags -->
+  <title>Axobrier: Open Source, Sub-Millisecond System 1 Decision Engine (Local Alternative to Cloud Decision APIs)</title>
+  <meta name="title" content="Axobrier: Open Source, Sub-Millisecond System 1 Decision Engine (Local Alternative to Cloud Decision APIs)">
+  <meta name="description" content="Run instant System 1 AI triage locally in C/CUDA. A zero-cost, zero-allocation local alternative to Jev and cloud decision APIs. 40µs latency on RTX 4090 for autonomous agents, CI/CD, and developer pipelines.">
+  <meta name="keywords" content="fast AI decision engine, local AI triage router, System 1 AI model, AI decision engine, agentic triage router, zero token cost, Claude Code router, Cursor triage, Vercel AI SDK router, Brier calibration, C CUDA decision engine">
+  <meta name="author" content="Axobrier Project">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://axobrier.com/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://axobrier.com/">
+  <meta property="og:title" content="Axobrier: Sub-Millisecond System 1 Decision Engine (Local Alternative to Jev)">
+  <meta property="og:description" content="Stop paying a cloud toll just to make a decision. Run instant System 1 AI triage locally in C/CUDA in 40 microseconds.">
+  <meta property="og:image" content="https://axobrier.com/og-card.png">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://axobrier.com/">
+  <meta property="twitter:title" content="Axobrier: Sub-Millisecond System 1 Decision Engine">
+  <meta property="twitter:description" content="A free, open-source System 1 decision engine that runs locally on your machine in 40 microseconds with zero cloud dependency.">
+  <meta property="twitter:image" content="https://axobrier.com/og-card.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Clean Modern Product Palette */
+      --bg-main: #0b0f19;
+      --bg-card: #111827;
+      --bg-card-hover: #162032;
+      --bg-card-alt: #0e1422;
+      --border-subtle: #1e293b;
+      --border-focus: #334155;
+      --border-accent: rgba(56, 189, 248, 0.4);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --cyan-bright: #38bdf8;
+      --emerald: #10b981;
+      --emerald-bg: rgba(16, 185, 129, 0.1);
+      --amber: #f59e0b;
+      --red: #ef4444;
+
+      /* Deep Technical Palette (Bottom Section) */
+      --tech-bg: #030712;
+      --tech-surface: #0a0f1d;
+      --tech-border: #1f293d;
+
+      --font-display: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(56, 189, 248, 0.25) rgba(15, 23, 42, 0.6);
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(11, 15, 25, 0.8);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(56, 189, 248, 0.25);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: rgba(56, 189, 248, 0.45);
+    }
+
+    html {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
+    }
+
+    a {
+      color: var(--cyan-bright);
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 0 16px;
+      }
+    }
+
+    /* Top Navigation */
+    header {
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(11, 15, 25, 0.95);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .logo-title {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+    .badge-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      background: var(--emerald-bg);
+      color: var(--emerald);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      font-weight: 500;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-link {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .nav-link:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+    .nav-btn-gh {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-focus);
+      background: rgba(255, 255, 255, 0.05);
+      transition: all 0.2s ease;
+    }
+    .nav-btn-gh:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.25);
+      text-decoration: none;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      color: #fff;
+      padding: 8px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .mobile-menu-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--border-focus);
+    }
+    .mobile-menu-btn svg {
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+      .mobile-menu-btn {
+        display: flex;
+      }
+      .nav-actions {
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(11, 15, 25, 0.98);
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid var(--border-subtle);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px 24px 28px;
+        gap: 14px;
+        display: none;
+        box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+      }
+      .nav-actions.is-active {
+        display: flex;
+      }
+      .nav-link {
+        font-size: 16px;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      }
+      .nav-btn-gh {
+        justify-content: center;
+        margin-top: 8px;
+        padding: 10px 16px;
+      }
+    }
+
+    /* SECTION 1: Overview */
+    .hero-section {
+      padding: 72px 0 60px;
+      text-align: center;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 14px;
+      border-radius: var(--radius-full);
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--cyan-bright);
+      margin-bottom: 24px;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.3rem, 5vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.035em;
+      color: #fff;
+      max-width: 880px;
+      margin: 0 auto 20px;
+    }
+    .hero-subhead {
+      font-size: clamp(1.1rem, 2vw, 1.28rem);
+      color: var(--text-muted);
+      max-width: 760px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+
+    .hero-cmd-box {
+      max-width: 620px;
+      margin: -14px auto 36px;
+      background: rgba(14, 20, 34, 0.9);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: var(--radius-md);
+      padding: 12px 18px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      text-align: left;
+    }
+    .hero-cmd-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .hero-cmd-label {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--cyan-bright);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hero-cmd-code-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #070b14;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 8px 12px;
+      gap: 10px;
+    }
+    .hero-cmd-prompt {
+      color: var(--emerald);
+      font-family: var(--font-mono);
+      font-weight: 700;
+      font-size: 13.5px;
+      user-select: none;
+    }
+    .hero-cmd-text {
+      font-family: var(--font-mono);
+      font-size: 13.5px;
+      color: #f1f5f9;
+      flex-grow: 1;
+      white-space: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .hero-cmd-text::-webkit-scrollbar {
+      display: none;
+    }
+    .hero-cmd-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-focus);
+      border-radius: var(--radius-sm);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+    .hero-cmd-copy-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--cyan-bright);
+      color: #fff;
+    }
+    @media (max-width: 540px) {
+      .hero-cmd-box {
+        margin: -8px 0 28px;
+        padding: 10px 12px;
+      }
+      .hero-cmd-text {
+        font-size: 12px;
+      }
+    }
+
+    /* Action Buttons */
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 26px;
+      background: #0284c7;
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: var(--radius-md);
+      border: 1px solid #38bdf8;
+      box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-primary:hover {
+      background: #0369a1;
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 26px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-focus);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    /* The Origin Box */
+    .origin-box {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--bg-card-alt);
+      border: 1px solid var(--border-subtle);
+      border-left: 3px solid var(--cyan-bright);
+      border-radius: var(--radius-md);
+      padding: 22px 26px;
+      text-align: left;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .origin-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan-bright);
+      margin-top: 2px;
+    }
+    .origin-title {
+      font-family: var(--font-display);
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--cyan-bright);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .origin-text {
+      font-size: 14.5px;
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    /* SECTION 2: Why Local Execution Outperforms Cloud APIs (3 Big Clean Cards) */
+    .features-section {
+      padding: 60px 0 70px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .section-header-center {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 48px;
+    }
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .section-headline {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .section-lead {
+      color: var(--text-muted);
+      font-size: 16px;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    @media (max-width: 860px) {
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 30px 26px;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .feature-card:hover {
+      border-color: var(--border-focus);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+    .card-badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .card-icon-wrap {
+      width: 42px;
+      height: 42px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card-icon-green { background: rgba(16, 185, 129, 0.15); color: var(--emerald); }
+    .card-icon-cyan { background: rgba(56, 189, 248, 0.15); color: var(--cyan-bright); }
+    .card-icon-amber { background: rgba(245, 158, 11, 0.15); color: var(--amber); }
+
+    .card-metric-tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+      letter-spacing: -0.015em;
+    }
+    .card-desc {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+
+    /* Hardware Compatibility Section */
+    .hardware-section {
+      padding: 60px 0 70px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .compat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+    .compat-card:hover {
+      border-color: var(--border-focus);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+    .compat-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+    .compat-tier {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 2px;
+    }
+    .compat-title {
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .compat-specs {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .compat-specs li strong {
+      color: var(--text-main);
+    }
+    .val-pill {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      background: var(--emerald-bg);
+      color: var(--emerald);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Hybrid System (How It Works) Section */
+    .hybrid-section {
+      padding: 60px 0 70px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .flow-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    @media (max-width: 860px) {
+      .flow-steps-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .flow-step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+    .flow-step-card:hover {
+      border-color: var(--border-focus);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+    .flow-step-num-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .flow-step-num {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--cyan-bright);
+    }
+    .flow-step-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 2px 9px;
+      border-radius: var(--radius-full);
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--cyan-bright);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      font-weight: 600;
+    }
+    .flow-step-title {
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .flow-step-text {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    .flow-step-sub {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
+    /* SECTION 3: The Honest Comparison */
+    .comparison-section {
+      padding: 60px 0 70px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .table-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(56, 189, 248, 0.25) transparent;
+    }
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+      table-layout: auto;
+    }
+    .comp-table th {
+      background: #0d1424;
+      padding: 13px 14px;
+      color: var(--text-muted);
+      font-family: var(--font-display);
+      font-size: 12.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      border-bottom: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      white-space: normal;
+      line-height: 1.35;
+    }
+    .comp-table th:nth-child(1) { width: 17%; }
+    .comp-table th:nth-child(2) { width: 31%; }
+    .comp-table th:nth-child(3) { width: 26%; }
+    .comp-table th:nth-child(4) { width: 26%; }
+    .comp-table th:last-child {
+      border-right: none;
+    }
+    .comp-table th.highlight-head {
+      background: rgba(16, 185, 129, 0.08);
+      color: var(--emerald);
+    }
+    .comp-table td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      vertical-align: middle;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+    .comp-table td:last-child {
+      border-right: none;
+    }
+    .comp-table tr:last-child td {
+      border-bottom: none;
+    }
+    .comp-table tr:hover td {
+      background: rgba(255, 255, 255, 0.015);
+    }
+    .comp-table td.highlight-cell {
+      background: rgba(16, 185, 129, 0.05);
+      color: var(--text-main);
+      font-weight: 600;
+    }
+    .comp-table td.highlight-cell strong {
+      color: var(--emerald);
+    }
+    .pill-win {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      background: var(--emerald-bg);
+      color: var(--emerald);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      margin-left: 6px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Mobile Comparative Cards (< 768px) */
+    .comp-mobile-stack {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .comp-mobile-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 18px 16px;
+    }
+    .comp-mobile-header {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .comp-mobile-winner {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+    .comp-mobile-winner .comp-mobile-label {
+      color: var(--emerald);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .comp-mobile-winner .comp-mobile-val {
+      color: #fff;
+      font-weight: 600;
+      font-size: 14.5px;
+      line-height: 1.4;
+    }
+    .comp-mobile-winner strong {
+      color: var(--emerald);
+    }
+    .comp-mobile-row {
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding: 0 4px;
+    }
+    .comp-mobile-row:last-child {
+      margin-bottom: 0;
+    }
+    .comp-mobile-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-dim);
+    }
+    .comp-mobile-val {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    @media (max-width: 768px) {
+      .table-card {
+        display: none !important;
+      }
+      .comp-mobile-stack {
+        display: flex !important;
+      }
+    }
+
+    /* SECTION: Empirical Publication Benchmarks */
+    .benchmarks-section {
+      padding: 70px 0 80px;
+      border-top: 1px solid var(--border-subtle);
+      background: linear-gradient(180deg, rgba(11, 15, 25, 0.6) 0%, rgba(14, 20, 34, 0.95) 50%, rgba(11, 15, 25, 0.6) 100%);
+    }
+    .bench-hardware-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 7px 18px;
+      border-radius: var(--radius-full);
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: #e0f2fe;
+      margin-top: 16px;
+      font-weight: 500;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulse-green 2s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-green {
+      0% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      }
+      70% {
+        box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
+    }
+    .bench-kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 36px 0 40px;
+    }
+    .bench-kpi-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      text-align: left;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+    .bench-kpi-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+    .kpi-val {
+      font-family: var(--font-mono);
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+    .kpi-val.highlight-green { color: var(--emerald); }
+    .kpi-val.highlight-cyan { color: var(--cyan-bright); }
+    .kpi-val.highlight-amber { color: var(--amber); }
+    .kpi-label {
+      font-family: var(--font-display);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 4px;
+    }
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--text-dim);
+      line-height: 1.4;
+    }
+
+    .bench-cards-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .bench-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    }
+    .bench-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .bench-card-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .bench-card-desc {
+      font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .bench-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .bench-badge-cyan {
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--cyan-bright);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .bench-badge-green {
+      background: var(--emerald-bg);
+      color: var(--emerald);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .bench-badge-amber {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--amber);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .bench-pub-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      background: var(--bg-card-alt);
+      width: 100%;
+    }
+    .bench-pub-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+    }
+    .bench-pub-table th {
+      background: #0d1424;
+      padding: 10px 12px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      white-space: nowrap;
+    }
+    .bench-pub-table th:last-child {
+      border-right: none;
+    }
+    .bench-pub-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border-subtle);
+      border-right: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .bench-pub-table td:last-child {
+      border-right: none;
+    }
+    /* Dense layout for wide multi-column tables */
+    .bench-pub-table.table-dense {
+      table-layout: auto;
+      width: 100%;
+    }
+    .bench-pub-table.table-dense th {
+      padding: 9px 10px;
+      font-size: 11px;
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+    .bench-pub-table.table-dense td {
+      padding: 9px 10px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .bench-pub-table.table-dense .bench-badge {
+      font-size: 10px;
+      padding: 2px 5px;
+      letter-spacing: -0.02em;
+    }
+    .bench-pub-table tr:last-child td {
+      border-bottom: none;
+    }
+    .bench-pub-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .bench-pub-table tr.total-row td {
+      background: rgba(56, 189, 248, 0.05);
+      color: #fff;
+      font-weight: 700;
+      border-top: 2px solid var(--border-focus);
+    }
+    .bench-pub-table tr.delta-row td {
+      background: rgba(16, 185, 129, 0.06);
+      color: #fff;
+      font-weight: 700;
+      border-top: 2px solid rgba(16, 185, 129, 0.4);
+    }
+    .cell-val-green {
+      color: var(--emerald);
+      font-weight: 600;
+    }
+    .cell-val-cyan {
+      color: var(--cyan-bright);
+      font-weight: 600;
+    }
+    .cell-val-amber {
+      color: var(--amber);
+      font-weight: 600;
+    }
+    .table-footer-note {
+      margin-top: 10px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    /* Concurrency Stats Strip for Table 2 */
+    .concurrency-stats-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .stat-pill {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+    }
+    .stat-pill-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+    .stat-pill-value {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    /* Architectural Callout Box */
+    .architectural-callout {
+      margin-top: 40px;
+      background: linear-gradient(135deg, rgba(14, 28, 48, 0.85) 0%, rgba(10, 18, 32, 0.95) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.4);
+      border-radius: var(--radius-lg);
+      padding: 28px 32px;
+      box-shadow: 0 12px 36px rgba(2, 132, 199, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .architectural-callout::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--cyan-bright), var(--emerald));
+    }
+    .callout-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .callout-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: rgba(56, 189, 248, 0.15);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--cyan-bright);
+      flex-shrink: 0;
+    }
+    .callout-title {
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .callout-quote {
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: #e2e8f0;
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+    .callout-telemetry-row {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .callout-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      font-weight: 500;
+    }
+    .callout-pill-clean {
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      color: #6ee7b7;
+    }
+    .callout-pill-ood {
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      color: #fcd34d;
+    }
+
+    @media (max-width: 860px) {
+      .bench-kpi-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .bench-card {
+        padding: 18px 20px;
+      }
+      .architectural-callout {
+        padding: 22px 24px;
+      }
+    }
+    @media (max-width: 540px) {
+      .bench-kpi-grid {
+        grid-template-columns: 1fr;
+      }
+      .bench-hardware-badge {
+        font-size: 11.5px;
+      }
+    }
+
+    /* Drop-In Integrations Section */
+    .integrations-section {
+      padding: 60px 0 70px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .integrations-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+    @media (max-width: 800px) {
+      .integrations-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .integration-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px 26px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.25s ease;
+    }
+    .integration-card:hover {
+      border-color: var(--border-focus);
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+    .integration-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+    .integration-title {
+      font-family: var(--font-display);
+      font-size: 1.22rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .integration-tag {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 2px;
+      display: block;
+    }
+    .integration-desc {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    .integration-recipe-link {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--cyan-bright);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .integration-recipe-link:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+    .hero-source-note {
+      font-size: 13.5px;
+      color: var(--text-dim);
+      max-width: 680px;
+      margin: -28px auto 36px;
+      line-height: 1.55;
+    }
+
+    /* SECTION 4: Technical Deep Dive & Specifications */
+    .technical-container-wrap {
+      background: var(--tech-bg);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 70px 0 80px;
+    }
+    .tech-header {
+      margin-bottom: 36px;
+    }
+    .tech-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--cyan-bright);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+    .tech-title {
+      font-family: var(--font-mono);
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+    .tech-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 800px;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    /* Terminal Preview Box */
+    .terminal-block {
+      background: var(--tech-surface);
+      border: 1px solid var(--tech-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      font-family: var(--font-mono);
+      font-size: 13px;
+    }
+    .terminal-bar {
+      background: #0f172a;
+      border-bottom: 1px solid var(--tech-border);
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-dim);
+      font-size: 11px;
+    }
+    .term-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .term-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+    .t-dot-red { background: #ef4444; }
+    .t-dot-yellow { background: #f59e0b; }
+    .t-dot-green { background: #10b981; }
+
+    .terminal-content {
+      padding: 18px 20px;
+      line-height: 1.6;
+      overflow-x: auto;
+    }
+    .term-prompt { color: var(--emerald); }
+    .term-cmd { color: #fff; font-weight: 600; }
+    .term-flag { color: var(--amber); }
+    .term-str { color: #7dd3fc; }
+    .term-json {
+      color: #e2e8f0;
+      margin-top: 10px;
+      white-space: pre;
+    }
+    .j-key { color: var(--cyan-bright); }
+    .j-num { color: var(--emerald); font-weight: 600; }
+    .j-val { color: #bae6fd; }
+
+    /* Benchmark Table */
+    .bench-table-wrap {
+      background: var(--tech-surface);
+      border: 1px solid var(--tech-border);
+      border-radius: var(--radius-md);
+      overflow-x: auto;
+      margin-top: 8px;
+    }
+    .bench-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .bench-table th {
+      background: #0c1322;
+      padding: 10px 14px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--tech-border);
+      border-right: 1px solid var(--tech-border);
+      text-align: left;
+    }
+    .bench-table th:last-child { border-right: none; }
+    .bench-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--tech-border);
+      border-right: 1px solid var(--tech-border);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+    }
+    .bench-table td:last-child { border-right: none; }
+    .bench-table tr:last-child td { border-bottom: none; }
+    .bench-table td.val-green {
+      color: var(--emerald);
+      font-weight: 600;
+    }
+
+    /* Cartridge Binary Diagram */
+    .ascii-diagram {
+      background: var(--tech-surface);
+      border: 1px solid var(--tech-border);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      line-height: 1.45;
+      color: #38bdf8;
+      overflow-x: auto;
+      white-space: pre;
+      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
+    }
+
+    .tech-subgrid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 768px) {
+      .tech-subgrid-2col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Checksums List */
+    .hash-list {
+      background: var(--tech-surface);
+      border: 1px solid var(--tech-border);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+    .hash-item {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+    .hash-item:last-child {
+      margin-bottom: 0;
+    }
+    .hash-file {
+      color: #fff;
+      font-weight: 600;
+    }
+    .hash-val {
+      color: var(--text-dim);
+      word-break: break-all;
+    }
+
+    /* SECTION 5: Legal & Attribution Footer */
+    footer {
+      padding: 50px 0 40px;
+      background: var(--bg-main);
+      font-size: 13.5px;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+    .footer-brand {
+      max-width: 440px;
+    }
+    .footer-brand h4 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .footer-col h5 {
+      font-family: var(--font-display);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-col a {
+      color: var(--text-dim);
+      font-size: 13.5px;
+    }
+    .footer-col a:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+    .legal-card {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 24px;
+      font-size: 12.5px;
+      color: var(--text-dim);
+    }
+
+    /* Global Responsive Adjustments for Mobile Devices */
+    @media (max-width: 768px) {
+      .footer-grid {
+        flex-direction: column;
+      }
+      .footer-links {
+        gap: 28px;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .hero-title {
+        font-size: clamp(1.8rem, 6.5vw, 2.5rem);
+      }
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-secondary {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+      }
+      .origin-box {
+        flex-direction: column;
+        padding: 16px 18px;
+      }
+      .footer-links {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .ascii-diagram {
+        font-size: 10px;
+        padding: 12px 14px;
+      }
+      .terminal-content {
+        padding: 14px 12px;
+        font-size: 12px;
+      }
+      .callout-telemetry-row {
+        flex-direction: column;
+      }
+      .callout-pill {
+        width: 100%;
+      }
+      .bench-card {
+        padding: 16px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header>
+    <div class="container header-content">
+      <a href="https://axobrier.com" class="logo-area">
+        <div class="logo-mark">A</div>
+        <span class="logo-title">axobrier</span>
+        <span class="badge-tag">v0.2.0</span>
+      </a>
+      <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+      <div class="nav-actions" id="nav-menu">
+        <a href="#features" class="nav-link">Why Local</a>
+        <a href="#hardware" class="nav-link">Hardware</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#comparison" class="nav-link">Comparison</a>
+        <a href="#benchmarks" class="nav-link">Benchmarks</a>
+        <a href="#integrations" class="nav-link">Integrations</a>
+        <a href="#technical" class="nav-link">Tech Specs</a>
+        <a href="https://github.com/Axobrier/Axobrier" target="_blank" rel="noopener noreferrer" class="nav-btn-gh">
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          <span>Star on GitHub</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- SECTION 1: Overview -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-pill">
+          <span>Open-Source | Apache 2.0 | Native C/CUDA Execution</span>
+        </div>
+
+        <h1 class="hero-title">
+          Stop Paying a Cloud Toll Just to Make a Decision.
+        </h1>
+
+        <p class="hero-subhead">
+          A completely free, open-source System 1 decision engine that runs locally on your machine in 40 microseconds with zero cloud dependency. Works on standard laptops, headless CI runners, or dedicated GPUs.
+        </p>
+
+        <!-- "Prove It on Your Machine" Command Box -->
+        <div class="hero-cmd-box" id="hero-cmd-container">
+          <div class="hero-cmd-header">
+            <div class="hero-cmd-label">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Prove It on Your Machine</span>
+            </div>
+          </div>
+          <div class="hero-cmd-code-row">
+            <span class="hero-cmd-prompt">$</span>
+            <code class="hero-cmd-text" id="pip-cmd">pip install axobrier &amp;&amp; python -m axobrier.verify</code>
+            <button class="hero-cmd-copy-btn" id="copy-cmd-btn" aria-label="Copy command to clipboard" title="Copy command">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span id="copy-btn-label">Copy</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="https://github.com/Axobrier/Axobrier/releases/download/v0.2.0/axobrier-v0.2.0-windows-x64.zip" class="btn-primary" id="cta-download">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="7 10 12 15 17 10"/>
+              <line x1="12" y1="15" x2="12" y2="3"/>
+            </svg>
+            <span>Download Windows x64 Release</span>
+          </a>
+          <a href="https://github.com/Axobrier/Axobrier" target="_blank" rel="noopener noreferrer" class="btn-secondary" id="cta-github">
+            <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            <span>Star on GitHub</span>
+          </a>
+        </div>
+
+        <p class="hero-source-note">
+          Full C/CUDA source code open under Apache 2.0. Pre-compiled binaries provided for 1-click Windows x64 execution without needing CUDA toolchain setup.
+        </p>
+
+        <!-- The Origin Box -->
+        <div class="origin-box">
+          <div class="origin-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <div>
+            <div class="origin-title">Motivation &amp; Background</div>
+            <p class="origin-text">
+              Axobrier was developed to eliminate the multi-second network delay and per-token cost of querying cloud LLM endpoints for deterministic routing decisions. Engineered for local agent loops, CI/CD runners, and developer tools where sub-millisecond execution is required.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Why Local Execution Outperforms Cloud APIs (3 Big Clean Feature Cards) -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <div class="section-header-center">
+          <div class="section-eyebrow">Local Metal Architecture</div>
+          <h2 class="section-headline">Why Local Execution Outperforms Cloud APIs</h2>
+          <p class="section-lead">
+            Routing a closed-set decision should be as fast as a CPU instruction, not a transcontinental network packet.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <!-- Card 1 -->
+          <div class="feature-card">
+            <div class="card-badge-row">
+              <div class="card-icon-wrap card-icon-green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+              </div>
+              <span class="card-metric-tag">$0.00 / call</span>
+            </div>
+            <h3 class="card-title">$0.00 Forever (No API Keys, No Subscriptions)</h3>
+            <p class="card-desc">
+              Run millions of triage and tool-selection decisions without watching an API billing meter tick up. No rate limits, no credit cards, and no unexpected cloud invoices.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="feature-card">
+            <div class="card-badge-row">
+              <div class="card-icon-wrap card-icon-cyan">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+              </div>
+              <span class="card-metric-tag">40 µs vs 300 ms</span>
+            </div>
+            <h3 class="card-title">Microsecond Speed (40 µs vs 300 ms)</h3>
+            <p class="card-desc">
+              Cloud decision APIs force you to wait for a 200ms to 500ms network round-trip. Axobrier executes right on your GPU or CPU before the network packet would even leave your computer.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="feature-card">
+            <div class="card-badge-row">
+              <div class="card-icon-wrap card-icon-amber">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+              </div>
+              <span class="card-metric-tag">100% Air-gapped</span>
+            </div>
+            <h3 class="card-title">Total Data Privacy</h3>
+            <p class="card-desc">
+              Your compiler logs, source diffs, and agent tasks stay on your local metal. Fully air-gapped and safe from remote data retention, leaks, or training telemetry.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HARDWARE COMPATIBILITY & REQUIREMENTS -->
+    <section class="hardware-section" id="hardware">
+      <div class="container">
+        <div class="section-header-center">
+          <div class="section-eyebrow">Universal Deployment</div>
+          <h2 class="section-headline">Engineered for Everything from Laptops to Datacenter Racks</h2>
+          <p class="section-lead">
+            No high-end rig required. While it hits ~25µs on flagship hardware, Axobrier runs locally on virtually any modern machine.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <!-- Card 1: Consumer & Laptop GPUs -->
+          <div class="compat-card">
+            <div class="compat-header">
+              <div class="card-icon-wrap card-icon-cyan">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                  <line x1="2" y1="20" x2="22" y2="20"/>
+                </svg>
+              </div>
+              <div>
+                <span class="compat-tier">Consumer &amp; Mobile</span>
+                <h3 class="compat-title">Consumer &amp; Laptop GPUs</h3>
+              </div>
+            </div>
+            <ul class="compat-specs">
+              <li><strong>Support:</strong> NVIDIA Pascal architecture and newer (Compute Capability 6.0+).</li>
+              <li><strong>Examples:</strong> GTX 1060+, GTX 1660, RTX 2060, 3060, 4060, and mobile laptop variants.</li>
+              <li><strong>Performance:</strong> <span class="val-pill">40µs to 90µs latency</span></li>
+            </ul>
+          </div>
+
+          <!-- Card 2: Pure CPU Mode -->
+          <div class="compat-card">
+            <div class="compat-header">
+              <div class="card-icon-wrap card-icon-green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
+                  <rect x="9" y="9" width="6" height="6"/>
+                  <line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/>
+                  <line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/>
+                  <line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/>
+                  <line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/>
+                </svg>
+              </div>
+              <div>
+                <span class="compat-tier">Zero GPU Required</span>
+                <h3 class="compat-title">Pure CPU Mode</h3>
+              </div>
+            </div>
+            <ul class="compat-specs">
+              <li><strong>Support:</strong> Any x86_64 processor with AVX2 instruction sets (Intel 4th Gen Haswell+ / AMD Zen 1+).</li>
+              <li><strong>Ideal for:</strong> Lightweight laptops, headless Linux servers, Docker containers, and GitHub Actions CI/CD runners.</li>
+              <li><strong>Performance:</strong> <span class="val-pill">400µs to 580µs</span> (still &gt;500x faster than cloud network round-trips).</li>
+            </ul>
+          </div>
+
+          <!-- Card 3: Enterprise & Workstations -->
+          <div class="compat-card">
+            <div class="compat-header">
+              <div class="card-icon-wrap card-icon-amber">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                  <line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+                </svg>
+              </div>
+              <div>
+                <span class="compat-tier">Enterprise &amp; Cloud</span>
+                <h3 class="compat-title">Enterprise &amp; Workstations</h3>
+              </div>
+            </div>
+            <ul class="compat-specs">
+              <li><strong>Support:</strong> RTX 4090/5090, workstation Ada Lovelace, NVIDIA T4, L4, A10, A100, H100.</li>
+              <li><strong>Footprint:</strong> &lt;32 MB VRAM total footprint. Completely safe to run alongside heavy background processes.</li>
+              <li><strong>Performance:</strong> <span class="val-pill">25µs to 42µs latency</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE HYBRID SYSTEM: HOW IT WORKS -->
+    <section class="hybrid-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header-center">
+          <div class="section-eyebrow">The Hybrid Architecture</div>
+          <h2 class="section-headline">Hybrid Architecture: Fast Local Classification with Frontier Fallbacks</h2>
+          <p class="section-lead">
+            Pair the deep reasoning of cloud models with the microsecond speed of local deterministic cartridges.
+          </p>
+        </div>
+
+        <div class="flow-steps-grid">
+          <!-- Step 1 -->
+          <div class="flow-step-card">
+            <div class="flow-step-num-bar">
+              <span class="flow-step-num">01</span>
+              <span class="flow-step-badge">Teacher Phase</span>
+            </div>
+            <h3 class="flow-step-title">Distill (The Teacher)</h3>
+            <p class="flow-step-text">
+              Use your favorite frontier model (Claude, GPT-4o, DeepSeek) to generate clean training examples for your specific routing domain (tool selection, triage, sentiment, intent).
+            </p>
+            <div class="flow-step-sub">
+              Produces domain JSONL pairs with clean categorical target labels.
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="flow-step-card">
+            <div class="flow-step-num-bar">
+              <span class="flow-step-num">02</span>
+              <span class="flow-step-badge">Compilation Phase</span>
+            </div>
+            <h3 class="flow-step-title">Compile (.axb Cartridge)</h3>
+            <p class="flow-step-text">
+              Run our single-command synthesis pipeline (<code>python -m axobrier.cli train</code>) to compile the decision matrix into an FP16 Brier-calibrated <code>.axb</code> file in under 3 minutes.
+            </p>
+            <div class="flow-step-sub">
+              Fits exact Platt temperature scaling and Brier loss bounds.
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="flow-step-card">
+            <div class="flow-step-num-bar">
+              <span class="flow-step-num">03</span>
+              <span class="flow-step-badge">Reflex Arc Phase</span>
+            </div>
+            <h3 class="flow-step-title">Run Locally (The Reflex)</h3>
+            <p class="flow-step-text">
+              Axobrier evaluates queries on your GPU or CPU in microseconds. If calibrated confidence is high (&gt;0.95), execute instantly at $0 cost. If ambiguous, escalate to the cloud.
+            </p>
+            <div class="flow-step-sub">
+              Filters 80%+ of repetitive decisions before touching cloud APIs.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Comparative Architecture Breakdown -->
+    <section class="comparison-section" id="comparison">
+      <div class="container">
+        <div class="section-header-center">
+          <div class="section-eyebrow">Architecture Comparison</div>
+          <h2 class="section-headline">Comparative Architecture Breakdown</h2>
+          <p class="section-lead">
+            Technical metrics comparing local C/CUDA execution, managed decision endpoints, and generative LLMs.
+          </p>
+        </div>
+
+        <div class="table-card">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th class="highlight-head">Axobrier (Local C/CUDA) <span class="pill-win">Recommended</span></th>
+                <th>Paid Cloud Decision APIs (like Jev)</th>
+                <th>Heavy Frontier LLMs (Claude / GPT-4o)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Cost & Fees</strong></td>
+                <td class="highlight-cell"><strong>$0.00 Forever</strong> <span class="pill-win">Zero Tokens</span></td>
+                <td>Paid per API call / monthly subscription</td>
+                <td>Expensive per-token generation pricing</td>
+              </tr>
+              <tr>
+                <td><strong>Decision Latency</strong></td>
+                <td class="highlight-cell"><strong>25 µs to 42 µs (Local Metal)</strong> <span class="pill-win">&gt; 1,500× Faster</span></td>
+                <td>70 ms to 500 ms (Network queue dependent)</td>
+                <td>1,500 ms to 4,000 ms (Autoregressive stream)</td>
+              </tr>
+              <tr>
+                <td><strong>Data Privacy</strong></td>
+                <td class="highlight-cell"><strong>100% On-Device / Air-Gapped</strong></td>
+                <td>Prompts & error logs leave your network</td>
+                <td>Sensitive source diffs sent to third-party</td>
+              </tr>
+              <tr>
+                <td><strong>Memory Allocation</strong></td>
+                <td class="highlight-cell"><strong>0 Bytes Dynamic Allocation in VRAM</strong></td>
+                <td>Remote cloud server managed</td>
+                <td>Remote cluster managed heap</td>
+              </tr>
+              <tr>
+                <td><strong>Probability Calibration</strong></td>
+                <td class="highlight-cell"><strong>Grounded Platt & Brier calibration (.axb)</strong></td>
+                <td>Proprietary cloud score (RLCD)</td>
+                <td>Overconfident / mathematically uncalibrated</td>
+              </tr>
+              <tr>
+                <td><strong>Open Source License</strong></td>
+                <td class="highlight-cell"><strong>Apache 2.0 (100% Free & Permissive)</strong></td>
+                <td>Proprietary closed-source SaaS</td>
+                <td>Proprietary closed API</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Mobile-Optimized Comparison Cards (< 768px) -->
+        <div class="comp-mobile-stack">
+          <!-- Card 1 -->
+          <div class="comp-mobile-card">
+            <div class="comp-mobile-header">
+              <span>Cost &amp; Fees</span>
+            </div>
+            <div class="comp-mobile-winner">
+              <div class="comp-mobile-label">
+                <span>Axobrier (Local C/CUDA)</span>
+                <span class="pill-win">Zero Tokens</span>
+              </div>
+              <div class="comp-mobile-val"><strong>$0.00 Forever</strong> (100% free local execution)</div>
+            </div>
+            <div class="comp-mobile-row">
+              <span class="comp-mobile-label">Paid Cloud APIs (like Jev)</span>
+              <span class="comp-mobile-val">Paid per API call / monthly subscription</span>
+            </div>
+            <div class="comp-mobile-row">
+              <span class="comp-mobile-label">Heavy Frontier LLMs (Claude / GPT-4o)</span>
+              <span class="comp-mobile-val">Expensive per-token generation pricing</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="comp-mobile-card">
+            <div class="comp-mobile-header">
+              <span>Decision Latency</span>
+            </div>
+            <div class="comp-mobile-winner">
+              <div class="comp-mobile-label">
+                <span>Axobrier (Local C/CUDA)</span>
+                <span class="pill-win">&gt; 1,500× Faster</span>
+              </div>
+              <div class="comp-mobile-val"><strong>25 µs to 42 µs</strong> on local metal</div>
+            </div>
+            <div class="comp-mobile-row">
+              <span class="comp-mobile-label">Paid Cloud APIs (like Jev)</span>
+              <span class="comp-mobile-val">70 ms to 500 ms (network queue dependent)</span>
+            </div>
+            <div class="comp-mobile-row">
+              <span class="comp-mobile-label">Heavy Frontier LLMs (Claude / GPT-4o)</span>
+              <span class="comp-mobile-val">1,500 ms to 4,000 ms (autoregressive stream)</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="comp-mobile-card">
+            <div class="comp-mobile-header">
+              <span>Data Privacy</span>
+            </div>
+            <div class="comp-mobile-winner">
+              <div class="comp-mobile-label">
+                <span>Axobrier (Local C/CUDA)</span>
+                <span class="pill-win">Air-Gapped</span>
+              </div>
+              <div class="comp-mobile-val"><strong>100% On-Device</strong> (code diffs never leave your machine)</div>
+            </div>
+            <div class="comp-mobile-row">
+              <span class="comp-mobile-label">Paid Cloud APIs (like Jev)</span>
+              <span class="comp-mobile-val">Prompts &amp; error logs leave your network</span>
+            </div>
+            <div class="comp-mobile-row">
+              <span class="comp-mobile-label">Heavy Frontier LLMs (Claude / GPT-4o)</span>
+              <span class="comp-mobile-val">Sensitive source diffs sent to third-party</span>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="comp-mobile-card">
+            <div class="comp-mobile-header">
+              <span>Memory Allocation</span>
+            </div>
+            <div class="comp-mobile-winner">
+              <div class="comp-mobile-label">
+                <span>Axobrier (Local C/CUDA)</span>
+                <span class="pill-win">Zero Leaks</span>
+              </div>
+              <div class="comp-mobile-val"><strong>0 Bytes Dynamic Allocation in VRAM</strong></div>
+            </div>
+            <div class="comp-mobile-row">
+              <span class="comp-mobile-label">Paid Cloud APIs (like Jev)</span>
+              <span class="comp-mobile-val">Remote cloud server managed</span>
+            </div>
+            <div class="comp-mobile-row">
+              <span class="comp-mobile-label">Heavy Frontier LLMs (Claude / GPT-4o)</span>
+              <span class="comp-mobile-val">Remote cluster managed heap</span>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="comp-mobile-card">
+            <div class="comp-mobile-header">
+              <span>Probability Calibration</span>
+            </div>
+            <div class="comp-mobile-winner">
+              <div class="comp-mobile-label">
+                <span>Axobrier (Local C/CUDA)</span>
+                <span class="pill-win">Grounded</span>
+              </div>
+              <div class="comp-mobile-val"><strong>Platt &amp; Brier calibration (.axb)</strong></div>
+            </div>
+            <div class="comp-mobile-row">
+              <span class="comp-mobile-label">Paid Cloud APIs (like Jev)</span>
+              <span class="comp-mobile-val">Proprietary cloud score (RLCD)</span>
+            </div>
+            <div class="comp-mobile-row">
+              <span class="comp-mobile-label">Heavy Frontier LLMs (Claude / GPT-4o)</span>
+              <span class="comp-mobile-val">Overconfident / mathematically uncalibrated</span>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="comp-mobile-card">
+            <div class="comp-mobile-header">
+              <span>Open Source License</span>
+            </div>
+            <div class="comp-mobile-winner">
+              <div class="comp-mobile-label">
+                <span>Axobrier (Local C/CUDA)</span>
+                <span class="pill-win">Apache 2.0</span>
+              </div>
+              <div class="comp-mobile-val"><strong>100% Free &amp; Permissive</strong></div>
+            </div>
+            <div class="comp-mobile-row">
+              <span class="comp-mobile-label">Paid Cloud APIs (like Jev)</span>
+              <span class="comp-mobile-val">Proprietary closed-source SaaS</span>
+            </div>
+            <div class="comp-mobile-row">
+              <span class="comp-mobile-label">Heavy Frontier LLMs (Claude / GPT-4o)</span>
+              <span class="comp-mobile-val">Proprietary closed API</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: Empirical Publication Benchmarks -->
+    <section class="benchmarks-section" id="benchmarks">
+      <div class="container">
+        <div class="section-header-center">
+          <div class="section-eyebrow">Hardware Benchmarks</div>
+          <h2 class="section-headline">Empirical Latency &amp; Saturation Benchmarks</h2>
+          <p class="section-lead">
+            Measured against compiler diagnostics, high-concurrency saturation, verbose stack trace stress tests, and out-of-distribution entropy bounds.
+          </p>
+          <div class="bench-hardware-badge">
+            <span class="pulse-dot"></span>
+            <span>Evaluated on NVIDIA GeForce RTX 5090 (Blackwell sm_120) with AVX2 host bindings.</span>
+          </div>
+        </div>
+
+        <div class="bench-kpi-grid">
+          <div class="bench-kpi-card">
+            <div class="kpi-val highlight-green">100.0%</div>
+            <div class="kpi-label">Diagnostic Routing Accuracy</div>
+            <div class="kpi-sub">50/50 compiler &amp; runtime error samples</div>
+          </div>
+          <div class="bench-kpi-card">
+            <div class="kpi-val highlight-cyan">674.5 µs</div>
+            <div class="kpi-label">Mean Inference Latency</div>
+            <div class="kpi-sub">Sub-millisecond end-to-end routing</div>
+          </div>
+          <div class="bench-kpi-card">
+            <div class="kpi-val highlight-green">6,736 /s</div>
+            <div class="kpi-label">Sustained Saturation Throughput</div>
+            <div class="kpi-sub">16 workers | 0 crashes across 50k requests</div>
+          </div>
+          <div class="bench-kpi-card">
+            <div class="kpi-val highlight-amber">89.61×</div>
+            <div class="kpi-label">Shannon Entropy Expansion</div>
+            <div class="kpi-sub">Rejection of out-of-distribution inputs</div>
+          </div>
+        </div>
+
+        <div class="bench-cards-stack">
+          <!-- Table 1: Real-World Multilingual Compiler Gauntlet -->
+          <div class="bench-card">
+            <div class="bench-card-header">
+              <div>
+                <h3 class="bench-card-title">Table 1: Real-World Multilingual Compiler Gauntlet</h3>
+                <p class="bench-card-desc">Zero synthetic templates. Evaluated across 50 production error signatures from active multi-language developer workflows.</p>
+              </div>
+              <span class="bench-badge bench-badge-green">50/50 Top-1 Accuracy | 674.5 µs mean latency | 99.20% Brier reliability</span>
+            </div>
+            <div class="bench-pub-table-wrap">
+              <table class="bench-pub-table">
+                <thead>
+                  <tr>
+                    <th>Domain / Environment</th>
+                    <th style="text-align: right;">Samples</th>
+                    <th style="text-align: right;">Accuracy</th>
+                    <th style="text-align: right;">Mean Latency</th>
+                    <th style="text-align: right;">Mean Confidence</th>
+                    <th style="text-align: right;">Brier Reliability</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Node / TypeScript</strong></td>
+                    <td style="text-align: right;">10</td>
+                    <td style="text-align: right;" class="cell-val-green">100.0%</td>
+                    <td style="text-align: right;">771.62 µs</td>
+                    <td style="text-align: right;">97.6%</td>
+                    <td style="text-align: right;" class="cell-val-green">99.7%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Python</strong></td>
+                    <td style="text-align: right;">10</td>
+                    <td style="text-align: right;" class="cell-val-green">100.0%</td>
+                    <td style="text-align: right;">637.10 µs</td>
+                    <td style="text-align: right;">94.7%</td>
+                    <td style="text-align: right;" class="cell-val-green">98.3%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Rust (Cargo / rustc)</strong></td>
+                    <td style="text-align: right;">10</td>
+                    <td style="text-align: right;" class="cell-val-green">100.0%</td>
+                    <td style="text-align: right;">654.15 µs</td>
+                    <td style="text-align: right;">99.9%</td>
+                    <td style="text-align: right;" class="cell-val-green">100.0%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>C / C++ (Clang / GCC)</strong></td>
+                    <td style="text-align: right;">10</td>
+                    <td style="text-align: right;" class="cell-val-green">100.0%</td>
+                    <td style="text-align: right;">676.02 µs</td>
+                    <td style="text-align: right;">95.7%</td>
+                    <td style="text-align: right;" class="cell-val-green">98.2%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Go / Cloud Infra</strong></td>
+                    <td style="text-align: right;">10</td>
+                    <td style="text-align: right;" class="cell-val-green">100.0%</td>
+                    <td style="text-align: right;">633.59 µs</td>
+                    <td style="text-align: right;">98.4%</td>
+                    <td style="text-align: right;" class="cell-val-green">99.9%</td>
+                  </tr>
+                  <tr class="total-row">
+                    <td><strong>Total / Aggregate</strong></td>
+                    <td style="text-align: right;"><strong>50</strong></td>
+                    <td style="text-align: right;" class="cell-val-green"><strong>100.0%</strong></td>
+                    <td style="text-align: right;" class="cell-val-cyan"><strong>674.50 µs</strong></td>
+                    <td style="text-align: right;">N/A</td>
+                    <td style="text-align: right;" class="cell-val-green"><strong>99.20%</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Table 2: High-Concurrency Saturation & Throughput -->
+          <div class="bench-card">
+            <div class="bench-card-header">
+              <div>
+                <h3 class="bench-card-title">Table 2: High-Concurrency Saturation &amp; Throughput</h3>
+                <p class="bench-card-desc">Sustained multi-threaded stress test pinning host CPU worker threads to evaluate lock contention and memory arenas.</p>
+              </div>
+              <span class="bench-badge bench-badge-cyan">16 workers | 6,736 decisions/sec | p50: 132.4 µs | zero race condition crashes across 50,000 requests</span>
+            </div>
+            <div class="concurrency-stats-strip">
+              <div class="stat-pill">
+                <div class="stat-pill-label">Total Requests</div>
+                <div class="stat-pill-value">50,000</div>
+              </div>
+              <div class="stat-pill">
+                <div class="stat-pill-label">Worker Threads</div>
+                <div class="stat-pill-value">16 Concurrent</div>
+              </div>
+              <div class="stat-pill">
+                <div class="stat-pill-label">Wall Duration</div>
+                <div class="stat-pill-value">7.422 sec</div>
+              </div>
+              <div class="stat-pill">
+                <div class="stat-pill-label">Sustained Throughput</div>
+                <div class="stat-pill-value cell-val-green">6,736.7 req/s</div>
+              </div>
+              <div class="stat-pill">
+                <div class="stat-pill-label">Race Condition Crashes</div>
+                <div class="stat-pill-value cell-val-green">0 (100% Thread-Safe)</div>
+              </div>
+            </div>
+            <div class="bench-pub-table-wrap">
+              <table class="bench-pub-table">
+                <thead>
+                  <tr>
+                    <th>Percentile Metric</th>
+                    <th style="text-align: right;">Measured Latency</th>
+                    <th>Runtime Characteristic</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Minimum (Fastest)</strong></td>
+                    <td style="text-align: right;" class="cell-val-green">63.40 µs</td>
+                    <td>Direct hot-cache resident execution</td>
+                  </tr>
+                  <tr>
+                    <td><strong>p25</strong></td>
+                    <td style="text-align: right;">125.50 µs</td>
+                    <td>Optimal thread dispatch slice</td>
+                  </tr>
+                  <tr>
+                    <td><strong>p50 (Median)</strong></td>
+                    <td style="text-align: right;" class="cell-val-green"><strong>132.40 µs</strong></td>
+                    <td>Sustained steady-state routing latency</td>
+                  </tr>
+                  <tr>
+                    <td><strong>p75</strong></td>
+                    <td style="text-align: right;">154.80 µs</td>
+                    <td>Deterministic high-concurrency throughput band</td>
+                  </tr>
+                  <tr>
+                    <td><strong>p90</strong></td>
+                    <td style="text-align: right;">2,693.41 µs</td>
+                    <td>Thread queue scheduling boundary (2.69 ms)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>p95</strong></td>
+                    <td style="text-align: right;">11,043.01 µs</td>
+                    <td>OS context-switch preemption band (11.04 ms)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>p99</strong></td>
+                    <td style="text-align: right;">45,909.01 µs</td>
+                    <td>Heavy saturation tail latency (45.91 ms)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Max (Peak Spike)</strong></td>
+                    <td style="text-align: right; color: var(--text-dim);">318,557.10 µs</td>
+                    <td>Cold-start worker initialization thread burst</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Table 3: Adversarial Noise & Diagnostic Distillation Scaling -->
+          <div class="bench-card">
+            <div class="bench-card-header">
+              <div>
+                <h3 class="bench-card-title">Table 3: Adversarial Noise &amp; Diagnostic Distillation Scaling</h3>
+                <p class="bench-card-desc">Evaluating token dilution mitigation and latency scaling from clean 1-line queries up to 100-line (~5.5 KB) verbose stack traces.</p>
+              </div>
+              <span class="bench-badge bench-badge-green">23.5x speedup @ 100 lines (1.43 ms vs 33.64 ms)</span>
+            </div>
+            <div class="bench-pub-table-wrap">
+              <table class="bench-pub-table">
+                <thead>
+                  <tr>
+                    <th>Payload Tier</th>
+                    <th style="text-align: right;">Payload Size</th>
+                    <th style="text-align: right;">Latency (Distilled)</th>
+                    <th style="text-align: right;">Speedup vs Raw</th>
+                    <th style="text-align: right;">Accuracy</th>
+                    <th style="text-align: right;">Calibrated Confidence</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Clean (1-line)</strong></td>
+                    <td style="text-align: right;">86 B</td>
+                    <td style="text-align: right;" class="cell-val-cyan">636.75 µs</td>
+                    <td style="text-align: right;"><span style="color: var(--text-muted);">1.0x (Parity)</span></td>
+                    <td style="text-align: right;" class="cell-val-green">100.0%</td>
+                    <td style="text-align: right;" class="cell-val-green">100.0%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Noisy (25-line)</strong></td>
+                    <td style="text-align: right;">1,424 B</td>
+                    <td style="text-align: right;" class="cell-val-cyan">1,181.65 µs</td>
+                    <td style="text-align: right;" class="cell-val-green"><strong>5.9x Faster</strong></td>
+                    <td style="text-align: right;" class="cell-val-green">100.0%</td>
+                    <td style="text-align: right;" class="cell-val-green">98.0%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Flooded (50-line)</strong></td>
+                    <td style="text-align: right;">2,792 B</td>
+                    <td style="text-align: right;" class="cell-val-cyan">1,244.00 µs</td>
+                    <td style="text-align: right;" class="cell-val-green"><strong>12.1x Faster</strong></td>
+                    <td style="text-align: right;" class="cell-val-green">100.0%</td>
+                    <td style="text-align: right;" class="cell-val-green">99.3%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Adversarial (100-line)</strong></td>
+                    <td style="text-align: right;">5,486 B</td>
+                    <td style="text-align: right;" class="cell-val-cyan">1,434.05 µs</td>
+                    <td style="text-align: right;" class="cell-val-green"><strong>23.5x Faster</strong></td>
+                    <td style="text-align: right;" class="cell-val-green">100.0%</td>
+                    <td style="text-align: right;" class="cell-val-green">99.3%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="table-footer-note">
+              * Result: Diagnostic token distillation prevents n-gram dilution on massive runtime call stacks, delivering 100% Top-1 accuracy with 23.5x lower latency (1.43 ms vs 33.64 ms) across 100-line failure logs.
+            </div>
+          </div>
+
+          <!-- Table 4: Brier Calibration Boundary & Entropy Expansion -->
+          <div class="bench-card">
+            <div class="bench-card-header">
+              <div>
+                <h3 class="bench-card-title">Table 4: Brier Calibration Boundary &amp; Entropy Expansion</h3>
+                <p class="bench-card-desc">Quantifying certainty vs. ambiguous out-of-domain (OOD) queries via Platt-scaled temperature reduction and Shannon entropy.</p>
+              </div>
+              <span class="bench-badge bench-badge-green">89.61x Shannon entropy expansion on ambiguous/out-of-domain inputs</span>
+            </div>
+            <div class="bench-pub-table-wrap">
+              <table class="bench-pub-table">
+                <thead>
+                  <tr>
+                    <th>Evaluation Scenario</th>
+                    <th style="text-align: right;">Sample Size</th>
+                    <th style="text-align: right;">Mean Calibrated Confidence</th>
+                    <th style="text-align: right;">Mean Shannon Entropy</th>
+                    <th>Calibration Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>High-Certainty Diagnostics</strong></td>
+                    <td style="text-align: right;">10</td>
+                    <td style="text-align: right;" class="cell-val-green">99.86%</td>
+                    <td style="text-align: right;">0.0087 nats</td>
+                    <td><span class="bench-badge bench-badge-green">Confident &amp; Calibrated</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Ambiguous / Out-of-Domain</strong></td>
+                    <td style="text-align: right;">10</td>
+                    <td style="text-align: right;" class="cell-val-amber">71.52%</td>
+                    <td style="text-align: right;" class="cell-val-amber">0.7805 nats</td>
+                    <td><span class="bench-badge bench-badge-amber">Confidence Suppressed</span></td>
+                  </tr>
+                  <tr class="delta-row">
+                    <td><strong>Delta / Response Shift</strong></td>
+                    <td style="text-align: right;">N/A</td>
+                    <td style="text-align: right;" class="cell-val-cyan"><strong>-28.33% suppression</strong></td>
+                    <td style="text-align: right;" class="cell-val-green"><strong>89.61× expansion</strong></td>
+                    <td><span class="bench-badge bench-badge-cyan">PASSED (Zero Hallucination)</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Architectural Callout Box -->
+        <div class="architectural-callout">
+          <div class="callout-header">
+            <div class="callout-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <circle cx="12" cy="11" r="3"/>
+              </svg>
+            </div>
+            <h4 class="callout-title">Calibration Characteristics: Out-of-Distribution Rejection</h4>
+          </div>
+          <p class="callout-quote">
+            Brier-calibrated temperature scaling suppresses confidence on out-of-distribution inputs by 28% and expands Shannon entropy by 89.6x, providing mathematical thresholds for safe fallback escalation.
+          </p>
+          <div class="callout-telemetry-row">
+            <div class="callout-pill callout-pill-clean">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span><strong>In-Domain:</strong> 99.86% Confidence | 0.0087 nats | Instant Autonomous Dispatch</span>
+            </div>
+            <div class="callout-pill callout-pill-ood">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <span><strong>Out-of-Domain:</strong> 71.52% Confidence (-28.3%) | 0.7805 nats (89.61×) | Safe Escalation Reflex</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Drop-In Integrations Section -->
+    <section class="integrations-section" id="integrations">
+      <div class="container">
+        <div class="section-header-center">
+          <div class="section-eyebrow">Ecosystem Compatibility</div>
+          <h2 class="section-headline">Drop-In Reflex Arc for Your Existing Stack</h2>
+          <p class="section-lead">
+            Axobrier sits at the front door of your local and cloud agent loops, deciding routing in microseconds before waking up heavy LLMs.
+          </p>
+        </div>
+
+        <div class="integrations-grid">
+          <!-- Card 1: Ollama & Local LLMs -->
+          <div class="integration-card">
+            <div class="integration-header">
+              <div class="card-icon-wrap card-icon-cyan">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <rect x="4" y="4" width="16" height="16" rx="2"/>
+                  <rect x="9" y="9" width="6" height="6"/>
+                  <line x1="9" y1="1" x2="9" y2="4"/>
+                  <line x1="15" y1="1" x2="15" y2="4"/>
+                  <line x1="9" y1="20" x2="9" y2="23"/>
+                  <line x1="15" y1="20" x2="15" y2="23"/>
+                  <line x1="20" y1="9" x2="23" y2="9"/>
+                  <line x1="20" y1="14" x2="23" y2="14"/>
+                  <line x1="1" y1="9" x2="4" y2="9"/>
+                  <line x1="1" y1="14" x2="4" y2="14"/>
+                </svg>
+              </div>
+              <div>
+                <span class="integration-tag">Local LLMs</span>
+                <h3 class="integration-title">Ollama &amp; Local LLMs</h3>
+              </div>
+            </div>
+            <p class="integration-desc">
+              Stop burning 8GB of VRAM and waiting 1.5 seconds just to route a prompt. Axobrier classifies user intent or tool choices in 40µs, waking Ollama only when generative synthesis is required.
+            </p>
+            <a href="https://github.com/Axobrier/Axobrier/blob/main/recipes/OLLAMA_LOCAL_HYBRID.md" class="integration-recipe-link">
+              <span>View Ollama Hybrid Recipe</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </div>
+
+          <!-- Card 2: Axobrier & Agentic Frameworks -->
+          <div class="integration-card">
+            <div class="integration-header">
+              <div class="card-icon-wrap card-icon-green">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polygon points="10 8 16 12 10 16 10 8"/>
+                </svg>
+              </div>
+              <div>
+                <span class="integration-tag">Agentic Loops</span>
+                <h3 class="integration-title">Axobrier &amp; Agentic Frameworks</h3>
+              </div>
+            </div>
+            <p class="integration-desc">
+              Resident VRAM memory mapping for autonomous developer loops. Resolves tool selection (Grep, Read, Diff, Run) with sub-100µs deterministic reflexes.
+            </p>
+            <a href="https://github.com/Axobrier/Axobrier/blob/main/recipes/AGENTIC_REFLEX_ARC.md" class="integration-recipe-link">
+              <span>View Axobrier Reflex Hook</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </div>
+
+          <!-- Card 3: Cursor, Windsurf & Codex -->
+          <div class="integration-card">
+            <div class="integration-header">
+              <div class="card-icon-wrap card-icon-amber">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <polyline points="4 17 10 11 4 5"/>
+                  <line x1="12" y1="19" x2="20" y2="19"/>
+                </svg>
+              </div>
+              <div>
+                <span class="integration-tag">IDE Rules &amp; Extensions</span>
+                <h3 class="integration-title">Cursor, Windsurf &amp; Codex</h3>
+              </div>
+            </div>
+            <p class="integration-desc">
+              Drop into <code>.cursorrules</code> or IDE background agents to instantly triage compiler and lint failures without burning frontier token budgets.
+            </p>
+            <a href="https://github.com/Axobrier/Axobrier/blob/main/recipes/CURSOR_AND_CODEX_RULES.md" class="integration-recipe-link">
+              <span>View IDE Rule Snippets</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </div>
+
+          <!-- Card 4: CI/CD & Headless Runners -->
+          <div class="integration-card">
+            <div class="integration-header">
+              <div class="card-icon-wrap card-icon-cyan">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                  <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                  <line x1="6" y1="6" x2="6.01" y2="6"/>
+                  <line x1="6" y1="18" x2="6.01" y2="18"/>
+                </svg>
+              </div>
+              <div>
+                <span class="integration-tag">Pipelines</span>
+                <h3 class="integration-title">CI/CD &amp; Headless Runners</h3>
+              </div>
+            </div>
+            <p class="integration-desc">
+              Pure AVX2 CPU execution on standard GitHub Actions or Docker workers. Triages broken builds in &lt;500µs at $0 extra compute cost.
+            </p>
+            <a href="https://github.com/Axobrier/Axobrier/blob/main/recipes/GITHUB_ACTIONS_CI.md" class="integration-recipe-link">
+              <span>View GitHub Actions Workflow</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Technical Deep Dive & Specifications (Technical Specifications) -->
+    <div class="technical-container-wrap" id="technical">
+      <div class="container">
+        <div class="tech-header">
+          <div class="tech-badge">// Technical Deep Dive & Specifications</div>
+          <h2 class="tech-title">Hardware Reflex Telemetry & ABI</h2>
+          <p class="tech-subtitle">
+            Under the hood: fused C/CUDA FP16 reduction kernels, deterministic memory mapping, and zero dynamic heap allocation on the hot-path.
+          </p>
+        </div>
+
+        <div class="tech-grid">
+          <!-- Real Terminal Run Proof -->
+          <div class="terminal-block">
+            <div class="terminal-bar">
+              <div class="term-dots">
+                <span class="term-dot t-dot-red"></span>
+                <span class="term-dot t-dot-yellow"></span>
+                <span class="term-dot t-dot-green"></span>
+              </div>
+              <span>axobrier route : live output (sm_120 / sm_89)</span>
+              <span>42.18 µs total</span>
+            </div>
+            <div class="terminal-content">
+              <div><span class="term-prompt">$ </span><span class="term-cmd">axobrier route</span> <span class="term-flag">--cartridge</span> <span class="term-str">models/build_triage.axb</span> <span class="term-flag">--query</span> <span class="term-str">"Cannot find module 'express' or its corresponding type declarations. (TS2307)"</span></div>
+              <div class="term-json">{
+  <span class="j-key">"status"</span>: <span class="j-val">"success"</span>,
+  <span class="j-key">"choice_index"</span>: <span class="j-num">3</span>,
+  <span class="j-key">"label"</span>: <span class="j-val">"MISSING_DEPENDENCY"</span>,
+  <span class="j-key">"confidence"</span>: <span class="j-num">0.9998</span>,
+  <span class="j-key">"raw_logit"</span>: <span class="j-num">7.4619</span>,
+  <span class="j-key">"entropy"</span>: <span class="j-num">0.0018</span>,
+  <span class="j-key">"latency_us"</span>: <span class="j-num">42.18</span>
+}</div>
+            </div>
+          </div>
+
+          <!-- Side-by-Side: Microsecond Benchmarks & C Quickstart -->
+          <div class="tech-subgrid-2col">
+            <div>
+              <h4 style="font-family: var(--font-mono); font-size: 13.5px; color: #fff; margin-bottom: 10px;">
+                Microsecond Execution Benchmarks
+              </h4>
+              <div class="bench-table-wrap">
+                <table class="bench-table">
+                  <thead>
+                    <tr>
+                      <th>Stage</th>
+                      <th>p50 Latency</th>
+                      <th>Throughput</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Fused Choice Kernel</td>
+                      <td class="val-green">25.03 µs</td>
+                      <td>39,952 ops/s</td>
+                    </tr>
+                    <tr>
+                      <td>Cartridge Route (Pooled)</td>
+                      <td class="val-green">38.40 µs</td>
+                      <td>24,271 ops/s</td>
+                    </tr>
+                    <tr>
+                      <td>CPU Fallback (AVX2)</td>
+                      <td>184.20 µs</td>
+                      <td>5,428 ops/s</td>
+                    </tr>
+                    <tr>
+                      <td>Zero-Copy Hot-Swap</td>
+                      <td class="val-green">707.80 µs</td>
+                      <td>1,413 swaps/s</td>
+                    </tr>
+                    <tr>
+                      <td>Cloud API (e.g. Jev)</td>
+                      <td style="color: var(--red);">85,000 µs</td>
+                      <td>&lt; 15 ops/s</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <h4 style="font-family: var(--font-mono); font-size: 13.5px; color: #fff; margin-bottom: 10px;">
+                C ABI Zero-Copy Memory Map
+              </h4>
+              <div class="terminal-block" style="height: calc(100% - 32px);">
+                <div class="terminal-content" style="padding: 14px 16px;">
+<pre style="color: #e2e8f0; font-family: var(--font-mono); font-size: 12px; line-height: 1.5;"><span style="color: #ff7b72;">#include</span> <span style="color: #7dd3fc;">"axobrier_core.h"</span>
+
+<span style="color: #ff7b72;">int</span> <span style="color: #d2a8ff;">main</span>(<span style="color: #ff7b72;">void</span>) {
+    <span style="color: #64748b;">// 1. One-time GPU arena provisioning</span>
+    AxoContext* ctx = NULL;
+    AxoConfig cfg = axo_config_default();
+    axo_create(&amp;ctx, &amp;cfg);
+
+    <span style="color: #64748b;">// 2. Zero-copy mmap cartridge into VRAM</span>
+    AxoCartridge cart;
+    axo_cartridge_load_mmap(<span style="color: #7dd3fc;">"models/build_triage.axb"</span>, &amp;cart);
+
+    <span style="color: #64748b;">// 3. Sub-millisecond execution</span>
+    AxoDecision res;
+    axo_evaluate_cartridge(ctx, &amp;cart, &amp;params, &amp;res);
+
+    printf(<span style="color: #7dd3fc;">"Choice: %s (%.2f us)\n"</span>, 
+           axo_cartridge_get_label(&amp;cart, res.choice_index), 
+           res.latency_us);
+
+    axo_destroy(ctx);
+    <span style="color: #ff7b72;">return</span> 0;
+}</pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cartridge Binary Specification -->
+          <div>
+            <h4 style="font-family: var(--font-mono); font-size: 13.5px; color: #fff; margin-bottom: 10px;">
+              Cartridge Binary Specification (.axb v1)
+            </h4>
+            <div class="ascii-diagram">
++-----------------------------------------------------------------------------------------------+
+| Axobrier Cartridge Binary Layout (.axb v1)                                                    |
++--------+--------+------------+----------------------------------------------------------------+
+| Offset | Size   | Type       | Description                                                    |
++--------+--------+------------+----------------------------------------------------------------+
+| 0x00   | 4 B    | uint32_t   | Magic Number: 0x00425841 ("AXB\0" in little-endian)            |
+| 0x04   | 4 B    | uint32_t   | Specification Version (uint32_t = 1)                           |
+| 0x08   | 4 B    | uint32_t   | Hidden Embedding Dimension D (fixed at 256)                    |
+| 0x0C   | 4 B    | uint32_t   | Cardinality C (Number of candidate choices)                    |
+| 0x10   | 4 B    | float32    | Platt Scaling Temperature Parameter (IEEE 754)                 |
+| 0x14   | 4 B    | float32    | Platt Scaling Bias Parameter (IEEE 754)                        |
+| 0x18   | 4 B    | uint32_t   | Length of null-delimited UTF-8 label section in bytes          |
++--------+--------+------------+----------------------------------------------------------------+
+| 0x1C   | C*D*2B | fp16[...]  | Choice Matrix: FP16 weights [C × D] mapped directly to GPU     |
++--------+--------+------------+----------------------------------------------------------------+
+| VAR    | N B    | char[...]  | UTF-8 Null-Delimited Labels (\0-separated string table)        |
++--------+--------+------------+----------------------------------------------------------------+</div>
+          </div>
+
+          <!-- SHA-256 Signatures -->
+          <div>
+            <h4 style="font-family: var(--font-mono); font-size: 13.5px; color: #fff; margin-bottom: 10px;">
+              Release Verification Checksums (SHA-256)
+            </h4>
+            <div class="hash-list">
+              <div class="hash-item">
+                <span class="hash-file">axobrier-v0.2.0-windows-x64.zip (152 KB)</span>
+                <span class="hash-val">37a2c96aba4282987c1b9a1f26ca60ae0028ce19bf3009a70f257b1594aeda6d</span>
+              </div>
+              <div class="hash-item">
+                <span class="hash-file">models/build_triage.axb (Compiler diagnostic router, C=7)</span>
+                <span class="hash-val">c1e1bad43117fb047e2b9e02eac954a87d31bc15ef6f278e53b03e6781bbae09</span>
+              </div>
+              <div class="hash-item">
+                <span class="hash-file">models/agent_router.axb (Autonomous agent tool selector, C=7)</span>
+                <span class="hash-val">4c975b5d7cec9d5fcfcfef6c78981368134c8eda38533ed9a561523fc8c587d3</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- SECTION 5: Legal & Attribution Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h4>axobrier</h4>
+          <p style="margin-bottom: 12px;">
+            The open-source, sub-millisecond System 1 decision engine. Zero cost. Zero cloud dependency.
+          </p>
+          <p style="font-size: 12.5px;">
+            Built originally as an internal low-latency reflex engine for real-time 3D pipelines and autonomous agent execution. Released publicly in 2026 under the Apache 2.0 license.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-col">
+            <h5>Artifacts</h5>
+            <ul>
+              <li><a href="https://github.com/Axobrier/Axobrier/releases/download/v0.2.0/axobrier-v0.2.0-windows-x64.zip">Win64 ZIP (152 KB)</a></li>
+              <li><a href="https://github.com/Axobrier/Axobrier/releases/tag/v0.2.0">Release Notes v0.2.0</a></li>
+              <li><a href="#benchmarks">RTX 5090 Benchmarks</a></li>
+              <li><a href="https://github.com/Axobrier/Axobrier/tree/main/models">Pre-trained Models (.axb)</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Recipes</h5>
+            <ul>
+              <li><a href="https://github.com/Axobrier/Axobrier/blob/main/recipes/OLLAMA_LOCAL_HYBRID.md">Ollama Local Hybrid</a></li>
+              <li><a href="https://github.com/Axobrier/Axobrier/blob/main/recipes/AGENTIC_REFLEX_ARC.md">Axobrier Reflex Arc</a></li>
+              <li><a href="https://github.com/Axobrier/Axobrier/blob/main/recipes/CURSOR_AND_CODEX_RULES.md">Cursor &amp; Codex Rules</a></li>
+              <li><a href="https://github.com/Axobrier/Axobrier/blob/main/recipes/GITHUB_ACTIONS_CI.md">GitHub Actions CI</a></li>
+              <li><a href="https://github.com/Axobrier/Axobrier/blob/main/recipes/LANGCHAIN_AND_AGENT_ROUTING.md">LangChain Routing</a></li>
+              <li><a href="https://github.com/Axobrier/Axobrier/blob/main/recipes/TRAIN_CUSTOM_CARTRIDGES.md">Train Custom (.axb)</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h5>Source &amp; License</h5>
+            <ul>
+              <li><a href="https://github.com/Axobrier/Axobrier">GitHub Repository</a></li>
+              <li><a href="https://github.com/Axobrier/Axobrier/blob/main/LICENSE">Apache 2.0 License</a></li>
+              <li><a href="https://github.com/Axobrier/Axobrier/blob/main/include/axobrier_core.h">C Public ABI</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="legal-card">
+        <p>
+          <strong>Legal Disclaimer:</strong> Jev is a trademark of TypeSafe AI, Inc. Axobrier is an independent, community-driven open-source project and is not affiliated with, sponsored by, or endorsed by TypeSafe AI, Inc.
+        </p>
+        <p style="margin-top: 6px;">
+          &copy; 2026 Axobrier Project Contributors. Open source under the Apache License 2.0.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const toggleBtn = document.getElementById('mobile-menu-toggle');
+      const navMenu = document.getElementById('nav-menu');
+      if (toggleBtn && navMenu) {
+        toggleBtn.addEventListener('click', function() {
+          const isOpen = navMenu.classList.toggle('is-active');
+          toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          toggleBtn.innerHTML = isOpen 
+            ? '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
+            : '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+        });
+        navMenu.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            navMenu.classList.remove('is-active');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            toggleBtn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+          });
+        });
+        document.addEventListener('click', function(e) {
+          if (!navMenu.contains(e.target) && !toggleBtn.contains(e.target) && navMenu.classList.contains('is-active')) {
+            navMenu.classList.remove('is-active');
+            toggleBtn.setAttribute('aria-expanded', 'false');
+            toggleBtn.innerHTML = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
+          }
+        });
+      }
+
+      const copyBtn = document.getElementById('copy-cmd-btn');
+      const pipCmd = document.getElementById('pip-cmd');
+      const copyLabel = document.getElementById('copy-btn-label');
+      if (copyBtn && pipCmd) {
+        copyBtn.addEventListener('click', function() {
+          const text = pipCmd.innerText || pipCmd.textContent;
+          navigator.clipboard.writeText(text).then(function() {
+            if (copyLabel) copyLabel.textContent = 'Copied!';
+            copyBtn.style.borderColor = 'var(--emerald)';
+            copyBtn.style.color = 'var(--emerald)';
+            setTimeout(function() {
+              if (copyLabel) copyLabel.textContent = 'Copy';
+              copyBtn.style.borderColor = '';
+              copyBtn.style.color = '';
+            }, 2000);
+          }).catch(function() {
+            if (copyLabel) copyLabel.textContent = 'Copied!';
+            setTimeout(function() { if (copyLabel) copyLabel.textContent = 'Copy'; }, 2000);
+          });
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

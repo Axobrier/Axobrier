@@ -1,0 +1,196 @@
+{"text": "Terminal output: Execute the entire test suite and assert that 100% of integration tests pass. Verify resolution.", "label": "RUN_BUILD_TEST"}
+{"text": "Traceback: Analyze panic stack trace: fatal memory corruption at 0x7ffd8a9b in thread worker-pool-2. Trace attached.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Static analysis finding: Execute the entire test suite and assert that 100% of integration tests pass. Status code non-zero.", "label": "RUN_BUILD_TEST"}
+{"text": "Compiler error: User is asking an open-ended conversational question that does not map to any local coding action. Action needed immediately.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Terminal output: Run git diff --stat to see which files were modified in the current work tree. Trace attached.", "label": "INSPECT_GIT_DIFF"}
+{"text": "System notification: Analyze panic stack trace: fatal memory corruption at 0x7ffd8a9b in thread worker-pool-2. Action needed immediately.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Runtime alert: Traceback analysis: KeyError at line 89 in config_loader.py called from main.py:12. Fails pipeline gate.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Diagnostic log: Grep for axo_device_alloc to see where device memory allocations are triggered. Status code non-zero.", "label": "GREP_SYMBOL"}
+{"text": "Console warning: Trace exception frames from crash log: unhandled NullPointerException at UserService.java:142. (Priority P0).", "label": "EXPAND_STACK_TRACE"}
+{"text": "Demangle symbol names from MSVC crash dump to locate the null pointer dereference. Rule triggered.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Console warning: Read lines 1 to 40 in pyproject.toml to inspect package metadata and build dependencies. Rule triggered.", "label": "READ_FILE_CHUNK"}
+{"text": "Pipeline report: Locate all definitions of struct AxoCartridgeHeader across header files. Rule triggered.", "label": "GREP_SYMBOL"}
+{"text": "Complex multi-turn strategic debate requiring broad world knowledge and philosophical reasoning.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Run automated test harness test_routing.exe and benchmark latency on RTX GPU. Fails pipeline gate.", "label": "RUN_BUILD_TEST"}
+{"text": "Pipeline report: Search for references to d_choice_matrix in all C and C++ source files. Fails pipeline gate.", "label": "GREP_SYMBOL"}
+{"text": "Traceback: Examine the first 100 lines of CMakeLists.txt to check CUDA architecture compile flags. Trace attached.", "label": "READ_FILE_CHUNK"}
+{"text": "Search codebase for platt_temperature to verify where calibration scaling is applied.", "label": "GREP_SYMBOL"}
+{"text": "Static analysis finding: Search the codebase for all occurrences of function axo_evaluate_cartridge.", "label": "GREP_SYMBOL"}
+{"text": "Runtime alert: Check whether background thread pool task has completed its data processing job. Rule triggered.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Terminal output: Execute the entire test suite and assert that 100% of integration tests pass. Fails pipeline gate.", "label": "RUN_BUILD_TEST"}
+{"text": "Terminal output: The task has high ambiguity and open-ended design trade-offs that require System 2 deliberation. Verify resolution.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Profiler incident: Open training/train_cartridge.py around line 200 to review the AdamW optimizer setup. Trace attached.", "label": "READ_FILE_CHUNK"}
+{"text": "Static analysis finding: Check git status and display the unified patch of our local modifications. Action needed immediately.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Static analysis finding: Read the contents of include/axobrier_core.h starting from line 40 to see AxoConfig fields. Fails pipeline gate.", "label": "READ_FILE_CHUNK"}
+{"text": "Diagnostic log: View lines 90 to 135 in src/kernel_decision.cu to verify Platt temperature divisor logic. Status code non-zero.", "label": "READ_FILE_CHUNK"}
+{"text": "Runtime alert: Ripgrep for regex pattern class AxoDecision across directory src/ and include/.", "label": "GREP_SYMBOL"}
+{"text": "Terminal output: Show me lines 1 to 50 of setup.py to verify package entry point definitions.", "label": "READ_FILE_CHUNK"}
+{"text": "Pipeline report: Ambiguous product requirement: user prompt asks for high-level creative architectural advice. Rule triggered.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Runtime alert: Check whether background thread pool task has completed its data processing job. Verify resolution.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Static analysis finding: View lines 90 to 135 in src/kernel_decision.cu to verify Platt temperature divisor logic. Rule triggered.", "label": "READ_FILE_CHUNK"}
+{"text": "Poll the daemon build watcher process to see if incremental compilation completed. Action needed immediately.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Traceback: Query status of asynchronous benchmark runner to retrieve elapsed execution time. Fails pipeline gate.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Diagnostic log: Read lines 300-360 in src/memory_arena.cpp to review the axo_create GPU arena allocator. Rule triggered.", "label": "READ_FILE_CHUNK"}
+{"text": "Poll active background process status to see if winget installation terminated.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Console warning: Execute ctest --test-dir build -C Release --output-on-failure to test all targets. Fails pipeline gate.", "label": "RUN_BUILD_TEST"}
+{"text": "Traceback: Show me lines 1 to 50 of setup.py to verify package entry point definitions. Fails pipeline gate.", "label": "READ_FILE_CHUNK"}
+{"text": "Traceback: Search codebase for platt_temperature to verify where calibration scaling is applied. Verify resolution.", "label": "GREP_SYMBOL"}
+{"text": "Run automated test harness test_routing.exe and benchmark latency on RTX GPU.", "label": "RUN_BUILD_TEST"}
+{"text": "Traceback: Run python tests/test_production_cartridges.py to evaluate live GPU routing performance. Action needed immediately.", "label": "RUN_BUILD_TEST"}
+{"text": "Display git diff for training/train_cartridge.py to review the Platt divisor change. Fails pipeline gate.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Compiler error: Walk down the stack frames from the panic unwinder to identify the failing assertion. Action needed immediately.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Terminal output: Grep for brier_score_loss in Python scripts to locate the objective function implementation. Trace attached.", "label": "GREP_SYMBOL"}
+{"text": "Terminal output: Ambiguous product requirement: user prompt asks for high-level creative architectural advice. Status code non-zero.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Show unstaged git diff for src/memory_arena.cpp to check our pointer arithmetic edits. Trace attached.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Agent instruction: Poll the daemon build watcher process to see if incremental compilation completed. (Priority P0).", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Pipeline report: Demangle symbol names from MSVC crash dump to locate the null pointer dereference.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Search for references to d_choice_matrix in all C and C++ source files. Rule triggered.", "label": "GREP_SYMBOL"}
+{"text": "Agent instruction: Check if background worker has finished syncing weights to device VRAM. Trace attached.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Agent instruction: Execute pytest tests/ in the background with timeout 30s to check test coverage. Trace attached.", "label": "RUN_BUILD_TEST"}
+{"text": "Pipeline report: Poll active background process status to see if winget installation terminated. Verify resolution.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Static analysis finding: Show me lines 1 to 50 of setup.py to verify package entry point definitions. Trace attached.", "label": "READ_FILE_CHUNK"}
+{"text": "System notification: Demangle C++ stack trace from core dump to find which kernel thread caused SIGSEGV. Trace attached.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Show unstaged git diff for src/memory_arena.cpp to check our pointer arithmetic edits. Rule triggered.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Show me lines 1 to 50 of setup.py to verify package entry point definitions. Action needed immediately.", "label": "READ_FILE_CHUNK"}
+{"text": "Traceback: Run python tests/test_production_cartridges.py to evaluate live GPU routing performance. Verify resolution.", "label": "RUN_BUILD_TEST"}
+{"text": "Console warning: Locate all definitions of struct AxoCartridgeHeader across header files. Status code non-zero.", "label": "GREP_SYMBOL"}
+{"text": "Run automated test harness test_routing.exe and benchmark latency on RTX GPU. Trace attached.", "label": "RUN_BUILD_TEST"}
+{"text": "Profiler incident: Execute ctest --test-dir build -C Release --output-on-failure to test all targets. Verify resolution.", "label": "RUN_BUILD_TEST"}
+{"text": "Pipeline report: Demangle symbol names from MSVC crash dump to locate the null pointer dereference. Fails pipeline gate.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Compiler error: Read the contents of include/axobrier_core.h starting from line 40 to see AxoConfig fields. Action needed immediately.", "label": "READ_FILE_CHUNK"}
+{"text": "Console warning: Complex multi-turn strategic debate requiring broad world knowledge and philosophical reasoning.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Pipeline report: Grep for axo_device_alloc to see where device memory allocations are triggered. Rule triggered.", "label": "GREP_SYMBOL"}
+{"text": "Terminal output: Complex multi-turn strategic debate requiring broad world knowledge and philosophical reasoning. Status code non-zero.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Pipeline report: Poll active background process status to see if winget installation terminated. Fails pipeline gate.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Compiler error: Monitor task-189 status until process state transitions to COMPLETED.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Profiler incident: Check status of background task-145 to see if MSVC installer has finished. Action needed immediately.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Pipeline report: Walk down the stack frames from the panic unwinder to identify the failing assertion. Status code non-zero.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Run unit tests for the routing kernel and verify if all test assertions pass.", "label": "RUN_BUILD_TEST"}
+{"text": "Runtime alert: Inspect deep call stack to find where the async unhandled Promise rejection originated.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Diagnostic log: Examine the list of modified and untracked files using git status --porcelain. Trace attached.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Pipeline report: Find all occurrences of export_cartridge in Python scripts across training and tools.", "label": "GREP_SYMBOL"}
+{"text": "Static analysis finding: Display git diff for training/train_cartridge.py to review the Platt divisor change. Rule triggered.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Pipeline report: Compile the project in Release configuration using MSVC and check for compiler warnings. (Priority P0).", "label": "RUN_BUILD_TEST"}
+{"text": "Analyze panic stack trace: fatal memory corruption at 0x7ffd8a9b in thread worker-pool-2.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Profiler incident: Query progress of the long-running training job on GPU device 0.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "System notification: Stack trace shows CUDA error 700 an illegal memory access was encountered at kernel.cu:88. Trace attached.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Runtime alert: View the contents of tests/test_production_cartridges.py lines 20 to 80.", "label": "READ_FILE_CHUNK"}
+{"text": "Agent instruction: Inspect the git diff of include/axobrier_core.h to ensure ABI compatibility. Fails pipeline gate.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Static analysis finding: Check status of background task-145 to see if MSVC installer has finished.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Terminal output: Check if background worker has finished syncing weights to device VRAM. Rule triggered.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Pipeline report: Demangle C++ stack trace from core dump to find which kernel thread caused SIGSEGV. Status code non-zero.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Traceback: The task has high ambiguity and open-ended design trade-offs that require System 2 deliberation. Status code non-zero.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Static analysis finding: View the contents of tests/test_production_cartridges.py lines 20 to 80.", "label": "READ_FILE_CHUNK"}
+{"text": "Pipeline report: The prompt asks for ethical and legal compliance guidance requiring nuanced world knowledge. Action needed immediately.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Profiler incident: Open training/train_cartridge.py around line 200 to review the AdamW optimizer setup.", "label": "READ_FILE_CHUNK"}
+{"text": "Terminal output: Inspect the git diff of include/axobrier_core.h to ensure ABI compatibility. Trace attached.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Profiler incident: Compile the project in Release configuration using MSVC and check for compiler warnings. (Priority P0).", "label": "RUN_BUILD_TEST"}
+{"text": "Traceback: Walk down the stack frames from the panic unwinder to identify the failing assertion. Verify resolution.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Terminal output: Execute build command: cmake --build build --config Release -j to compile DLL. Action needed immediately.", "label": "RUN_BUILD_TEST"}
+{"text": "Diagnostic log: Run unit tests for the routing kernel and verify if all test assertions pass. Verify resolution.", "label": "RUN_BUILD_TEST"}
+{"text": "Runtime alert: Check if asynchronous docker build task returned an exit code or is still running. Trace attached.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Pipeline report: Grep for brier_score_loss in Python scripts to locate the objective function implementation. Verify resolution.", "label": "GREP_SYMBOL"}
+{"text": "Execute ctest --test-dir build -C Release --output-on-failure to test all targets. Status code non-zero.", "label": "RUN_BUILD_TEST"}
+{"text": "Compiler error: Query status of asynchronous benchmark runner to retrieve elapsed execution time. Trace attached.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Static analysis finding: Check status of background task-145 to see if MSVC installer has finished. Verify resolution.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Escalate this nuanced semantic inquiry to Claude 3.7 Sonnet or GPT-4o for deep multi-hop planning.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Check git status and clean stale untracked branch artifacts.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Traceback: Read the contents of include/axobrier_core.h starting from line 40 to see AxoConfig fields. Rule triggered.", "label": "READ_FILE_CHUNK"}
+{"text": "Runtime alert: Check if asynchronous docker build task returned an exit code or is still running. Action needed immediately.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Read lines 300-360 in src/memory_arena.cpp to review the axo_create GPU arena allocator.", "label": "READ_FILE_CHUNK"}
+{"text": "Traceback: Open training/train_cartridge.py around line 200 to review the AdamW optimizer setup. Status code non-zero.", "label": "READ_FILE_CHUNK"}
+{"text": "System notification: Grep for brier_score_loss in Python scripts to locate the objective function implementation.", "label": "GREP_SYMBOL"}
+{"text": "Static analysis finding: Execute the entire test suite and assert that 100% of integration tests pass. Action needed immediately.", "label": "RUN_BUILD_TEST"}
+{"text": "System notification: Show git log -n 5 with patch summary to trace recent repository milestones. Trace attached.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Compiler error: Execute build command: cmake --build build --config Release -j to compile DLL. Action needed immediately.", "label": "RUN_BUILD_TEST"}
+{"text": "Traceback: Monitor task-189 status until process state transitions to COMPLETED. Action needed immediately.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "System notification: Query status of asynchronous benchmark runner to retrieve elapsed execution time.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Pipeline report: Analyze panic stack trace: fatal memory corruption at 0x7ffd8a9b in thread worker-pool-2. Trace attached.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Terminal output: Inspect the git diff of include/axobrier_core.h to ensure ABI compatibility. Status code non-zero.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Pipeline report: Compile the project in Release configuration using MSVC and check for compiler warnings.", "label": "RUN_BUILD_TEST"}
+{"text": "Runtime alert: Traceback analysis: KeyError at line 89 in config_loader.py called from main.py:12. (Priority P0).", "label": "EXPAND_STACK_TRACE"}
+{"text": "Profiler incident: Inspect lines 120-180 in src/kernel_encoder.cu to check layer normalization gamma parameters. Action needed immediately.", "label": "READ_FILE_CHUNK"}
+{"text": "Show git log -n 5 with patch summary to trace recent repository milestones.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Console warning: Show unstaged git diff for src/memory_arena.cpp to check our pointer arithmetic edits. Action needed immediately.", "label": "INSPECT_GIT_DIFF"}
+{"text": "System notification: Show git log -n 5 with patch summary to trace recent repository milestones. Fails pipeline gate.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Traceback: Inspect recursion stack overflow trace to find the infinite loop invocation.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Profiler incident: Show unstaged git diff for src/memory_arena.cpp to check our pointer arithmetic edits. Fails pipeline gate.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Diagnostic log: Locate all definitions of struct AxoCartridgeHeader across header files. Status code non-zero.", "label": "GREP_SYMBOL"}
+{"text": "Profiler incident: Inspect the git diff of include/axobrier_core.h to ensure ABI compatibility. Fails pipeline gate.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Compiler error: Run cmake build and execute the CTest regression suite to verify our changes. (Priority P0).", "label": "RUN_BUILD_TEST"}
+{"text": "Diagnostic log: Inspect lines 120-180 in src/kernel_encoder.cu to check layer normalization gamma parameters. Fails pipeline gate.", "label": "READ_FILE_CHUNK"}
+{"text": "Compiler error: User requests a philosophical explanation comparing functional vs object-oriented paradigm. Rule triggered.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Diagnostic log: Examine the list of modified and untracked files using git status --porcelain. Verify resolution.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Profiler incident: Trace exception frames from crash log: unhandled NullPointerException at UserService.java:142. Action needed immediately.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Terminal output: Trace exception frames from crash log: unhandled NullPointerException at UserService.java:142. Action needed immediately.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Profiler incident: Query progress of the long-running training job on GPU device 0. Verify resolution.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "System notification: Expand the Python traceback to inspect intermediate local variables inside frame 3. Trace attached.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Terminal output: The task has high ambiguity and open-ended design trade-offs that require System 2 deliberation. (Priority P0).", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Traceback: Open training/train_cartridge.py around line 200 to review the AdamW optimizer setup. Action needed immediately.", "label": "READ_FILE_CHUNK"}
+{"text": "Static analysis finding: Execute ctest --test-dir build -C Release --output-on-failure to test all targets. Status code non-zero.", "label": "RUN_BUILD_TEST"}
+{"text": "System notification: Examine the list of modified and untracked files using git status --porcelain. Rule triggered.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Agent instruction: Find where the constant AXO_CARTRIDGE_MAGIC is defined or referenced in the repository. (Priority P0).", "label": "GREP_SYMBOL"}
+{"text": "Agent instruction: Examine the list of modified and untracked files using git status --porcelain. Status code non-zero.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Escalate this nuanced semantic inquiry to Claude 3.7 Sonnet or GPT-4o for deep multi-hop planning. (Priority P0).", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Static analysis finding: Expand the Python traceback to inspect intermediate local variables inside frame 3. Trace attached.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Profiler incident: Search the repository using ripgrep for symbol or function definition.", "label": "GREP_SYMBOL"}
+{"text": "System notification: Query progress of the long-running training job on GPU device 0. Status code non-zero.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Pipeline report: Escalate this nuanced semantic inquiry to Claude 3.7 Sonnet or GPT-4o for deep multi-hop planning. (Priority P0).", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Diagnostic log: The prompt asks for ethical and legal compliance guidance requiring nuanced world knowledge. Verify resolution.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Runtime alert: Display git diff for training/train_cartridge.py to review the Platt divisor change. Rule triggered.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Compiler error: Poll active background process status to see if winget installation terminated. (Priority P0).", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Profiler incident: Inspect file tools/export_cartridge.py between lines 40 and 90 to inspect header format. Fails pipeline gate.", "label": "READ_FILE_CHUNK"}
+{"text": "Diagnostic log: Grep for axo_device_alloc to see where device memory allocations are triggered. Rule triggered.", "label": "GREP_SYMBOL"}
+{"text": "Profiler incident: Run git diff --stat to see which files were modified in the current work tree.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Review uncommitted git changes and diff against HEAD before drafting the commit message. (Priority P0).", "label": "INSPECT_GIT_DIFF"}
+{"text": "Check status of background task-145 to see if MSVC installer has finished. Action needed immediately.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Static analysis finding: Examine the first 100 lines of CMakeLists.txt to check CUDA architecture compile flags.", "label": "READ_FILE_CHUNK"}
+{"text": "Compiler error: Monitor task-189 status until process state transitions to COMPLETED. Rule triggered.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Pipeline report: Show git log -n 5 with patch summary to trace recent repository milestones.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Runtime alert: Read the contents of include/axobrier_core.h starting from line 40 to see AxoConfig fields. Rule triggered.", "label": "READ_FILE_CHUNK"}
+{"text": "Pipeline report: Search for references to d_choice_matrix in all C and C++ source files. Verify resolution.", "label": "GREP_SYMBOL"}
+{"text": "Profiler incident: Search for sm_120 in CMakeLists.txt and build configuration files. Status code non-zero.", "label": "GREP_SYMBOL"}
+{"text": "Compiler error: Search the codebase for all occurrences of function axo_evaluate_cartridge. (Priority P0).", "label": "GREP_SYMBOL"}
+{"text": "Pipeline report: Locate all definitions of struct AxoCartridgeHeader across header files. (Priority P0).", "label": "GREP_SYMBOL"}
+{"text": "Run cmake build and execute the CTest regression suite to verify our changes. Verify resolution.", "label": "RUN_BUILD_TEST"}
+{"text": "Agent instruction: Demangle symbol names from MSVC crash dump to locate the null pointer dereference.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Profiler incident: Inspect recursion stack overflow trace to find the infinite loop invocation. Status code non-zero.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Grep for brier_score_loss in Python scripts to locate the objective function implementation. (Priority P0).", "label": "GREP_SYMBOL"}
+{"text": "Terminal output: Query status of asynchronous benchmark runner to retrieve elapsed execution time. Action needed immediately.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Profiler incident: Ripgrep for regex pattern class AxoDecision across directory src/ and include/. Trace attached.", "label": "GREP_SYMBOL"}
+{"text": "Compiler error: Walk down the stack frames from the panic unwinder to identify the failing assertion. Status code non-zero.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Console warning: Execute build command: cmake --build build --config Release -j to compile DLL. (Priority P0).", "label": "RUN_BUILD_TEST"}
+{"text": "Static analysis finding: Ambiguous product requirement: user prompt asks for high-level creative architectural advice. Trace attached.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Traceback: Check status of background task-145 to see if MSVC installer has finished. Verify resolution.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Trigger test_cartridge.exe to benchmark alternating hot-swap p50 latency. Status code non-zero.", "label": "RUN_BUILD_TEST"}
+{"text": "Terminal output: Find all occurrences of export_cartridge in Python scripts across training and tools. Status code non-zero.", "label": "GREP_SYMBOL"}
+{"text": "Runtime alert: Inspect file tools/export_cartridge.py between lines 40 and 90 to inspect header format. (Priority P0).", "label": "READ_FILE_CHUNK"}
+{"text": "Pipeline report: User is asking an open-ended conversational question that does not map to any local coding action. (Priority P0).", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Runtime alert: Strategic system refactoring proposal requiring multi-repository architectural consensus. Verify resolution.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Pipeline report: Search for sm_120 in CMakeLists.txt and build configuration files. Verify resolution.", "label": "GREP_SYMBOL"}
+{"text": "Static analysis finding: Escalate this nuanced semantic inquiry to Claude 3.7 Sonnet or GPT-4o for deep multi-hop planning. (Priority P0).", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Agent instruction: Execute pytest tests/ in the background with timeout 30s to check test coverage. Fails pipeline gate.", "label": "RUN_BUILD_TEST"}
+{"text": "Traceback: Walk down the stack frames from the panic unwinder to identify the failing assertion. Trace attached.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Traceback: Examine the first 100 lines of CMakeLists.txt to check CUDA architecture compile flags. Verify resolution.", "label": "READ_FILE_CHUNK"}
+{"text": "Static analysis finding: Escalate this nuanced semantic inquiry to Claude 3.7 Sonnet or GPT-4o for deep multi-hop planning. Status code non-zero.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Profiler incident: The prompt asks for ethical and legal compliance guidance requiring nuanced world knowledge.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Traceback: Show git log -n 5 with patch summary to trace recent repository milestones. Action needed immediately.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Diagnostic log: Inspect deep call stack to find where the async unhandled Promise rejection originated. Fails pipeline gate.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Terminal output: Complex multi-turn strategic debate requiring broad world knowledge and philosophical reasoning. Action needed immediately.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Console warning: Show unstaged git diff for src/memory_arena.cpp to check our pointer arithmetic edits. Rule triggered.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Runtime alert: Run git diff HEAD~1 to review the changes introduced by the previous commit. Status code non-zero.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Traceback: Creative narrative writing request requiring literary prose generation outside domain tools.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "System notification: Check if asynchronous docker build task returned an exit code or is still running. Rule triggered.", "label": "POLL_BACKGROUND_JOB"}
+{"text": "Runtime alert: Read lines 1 to 40 in pyproject.toml to inspect package metadata and build dependencies. (Priority P0).", "label": "READ_FILE_CHUNK"}
+{"text": "Console warning: Search the repository using ripgrep for symbol or function definition.", "label": "GREP_SYMBOL"}
+{"text": "Terminal output: The task has high ambiguity and open-ended design trade-offs that require System 2 deliberation.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Profiler incident: Execute build command: cmake --build build --config Release -j to compile DLL. Trace attached.", "label": "RUN_BUILD_TEST"}
+{"text": "Console warning: Display git diff for training/train_cartridge.py to review the Platt divisor change.", "label": "INSPECT_GIT_DIFF"}
+{"text": "Compiler error: Creative narrative writing request requiring literary prose generation outside domain tools. Status code non-zero.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Console warning: Stack trace shows CUDA error 700 an illegal memory access was encountered at kernel.cu:88. Trace attached.", "label": "EXPAND_STACK_TRACE"}
+{"text": "Console warning: Search the repository using ripgrep for symbol or function definition. Rule triggered.", "label": "GREP_SYMBOL"}
+{"text": "Agent instruction: Read lines 300-360 in src/memory_arena.cpp to review the axo_create GPU arena allocator. Rule triggered.", "label": "READ_FILE_CHUNK"}
+{"text": "Pipeline report: Creative narrative writing request requiring literary prose generation outside domain tools. (Priority P0).", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Runtime alert: Complex multi-turn strategic debate requiring broad world knowledge and philosophical reasoning.", "label": "ESCALATE_TO_CLOUD_LLM"}
+{"text": "Run python tests/test_production_cartridges.py to evaluate live GPU routing performance. Trace attached.", "label": "RUN_BUILD_TEST"}
+{"text": "Static analysis finding: Open-ended requirements document drafted with contradictory customer specifications. Trace attached.", "label": "ESCALATE_TO_CLOUD_LLM"}

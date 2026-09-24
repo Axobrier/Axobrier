@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "axobrier"
+version = "0.2.0"
+description = "Axobrier: Deterministic System 1 Choice Routing Engine for Autonomous AI Agents"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "Axobrier Team" }
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: C++",
+    "Programming Language :: CUDA"
+]
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.20.0"
+]
+
+[project.scripts]
+axobrier = "axobrier.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["axobrier*"]

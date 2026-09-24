@@ -1,0 +1,196 @@
+{"text": "Profiler incident: LINK : fatal error LNK1181: cannot open input file 'axobrier_core.lib'. Library file missing.", "label": "FILE_NOT_FOUND"}
+{"text": "Diagnostic log: TypeError: unsupported operand type(s) for +: 'int' and 'str'. Invalid type concatenation. Fails pipeline gate.", "label": "TYPE_MISMATCH"}
+{"text": "Pipeline report: fatal: pathspec 'src/legacy/router.ts' did not match any files known to git.", "label": "FILE_NOT_FOUND"}
+{"text": "Compiler error: compiler error: file not found: include/custom_math.h cannot be opened for reading. Action needed immediately.", "label": "FILE_NOT_FOUND"}
+{"text": "Diagnostic log: error[E0432]: unresolved import 'tokio'. could not find 'tokio' in crate list. Fails pipeline gate.", "label": "MISSING_DEPENDENCY"}
+{"text": "System notification: cargo error: failed to select a version for the requirement 'serde = ^1.0'. No matching crate found.", "label": "MISSING_DEPENDENCY"}
+{"text": "Runtime alert: npm ERR! package 'zod' is not listed in dependencies or package.json. Rule triggered.", "label": "MISSING_DEPENDENCY"}
+{"text": "panic: required env var 'AWS_SECRET_ACCESS_KEY' is missing in container execution context.", "label": "ENV_VAR_MISSING"}
+{"text": "Console warning: error[E0308]: mismatched types: expected '&str', found struct 'std::string::String'. Action needed immediately.", "label": "TYPE_MISMATCH"}
+{"text": "Pipeline report: tsc --noEmit completed with 0 errors. TypeScript project compiles cleanly. Action needed immediately.", "label": "BUILD_SUCCESS"}
+{"text": "Runtime alert: Error: Environment variable DATABASE_URL is not set or is empty in current environment. Trace attached.", "label": "ENV_VAR_MISSING"}
+{"text": "Traceback: Compilation finished in 1.42s. 0 errors, 0 warnings. Build artifact: target/release/server. Rule triggered.", "label": "BUILD_SUCCESS"}
+{"text": "Pipeline report: FAILED tests/test_api.py::test_create_user - AssertionError: assert response.status_code == 201. Rule triggered.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Compiler error: Parser error: unexpected EOF while parsing nested parentheses in expression. Fails pipeline gate.", "label": "SYNTAX_ERROR"}
+{"text": "Profiler incident: EnvLookupError: required setting 'APP_SECRET_TOKEN' was not found in environment map. Trace attached.", "label": "ENV_VAR_MISSING"}
+{"text": "assert_eq!(output, expected) failed on iteration 12. Regression test case broke. Trace attached.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Runtime alert: error: expected ';' before '}' token at end of scope. Missing closing semicolon. Status code non-zero.", "label": "SYNTAX_ERROR"}
+{"text": "Compiler error: Missing environment variable: AZURE_STORAGE_CONNECTION_STRING is required for blob upload. (Priority P0).", "label": "ENV_VAR_MISSING"}
+{"text": "Runtime alert: npm ERR! package 'zod' is not listed in dependencies or package.json. Rule triggered.", "label": "MISSING_DEPENDENCY"}
+{"text": "Runtime alert: SyntaxError: Unterminated string literal detected at end of line. Missing closing quotation. Rule triggered.", "label": "SYNTAX_ERROR"}
+{"text": "Traceback: Vitest test suite failed: expect(received).toBeGreaterThan(expected). Expected > 0, got -1. Rule triggered.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Diagnostic log: TypeError: unsupported operand type(s) for +: 'int' and 'str'. Invalid type concatenation. Action needed immediately.", "label": "TYPE_MISMATCH"}
+{"text": "Static analysis finding: Could not find a declaration file for module 'lodash'. Run npm i --save-dev @types/lodash.", "label": "MISSING_DEPENDENCY"}
+{"text": "Agent instruction: [100%] Built target axobrier_core. Build succeeded without errors or warnings. Fails pipeline gate.", "label": "BUILD_SUCCESS"}
+{"text": "fatal: pathspec 'src/legacy/router.ts' did not match any files known to git. Verify resolution.", "label": "FILE_NOT_FOUND"}
+{"text": "Traceback: tsc --noEmit completed with 0 errors. TypeScript project compiles cleanly. Verify resolution.", "label": "BUILD_SUCCESS"}
+{"text": "Pipeline report: test service::tests::it_authenticates ... FAILED -- assertion left == right failed (left: 404, right: 200). Status code non-zero.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Compiler error: error[E0432]: unresolved import 'tokio'. could not find 'tokio' in crate list. Action needed immediately.", "label": "MISSING_DEPENDENCY"}
+{"text": "Console warning: error: expected one of '!', '(', '+', '::', ';', or '<', found '}' in Rust source. Action needed immediately.", "label": "SYNTAX_ERROR"}
+{"text": "Terminal output: Expected: [1, 2, 3], Received: [1, 2]. Array length assertion failed in unit test suite. Fails pipeline gate.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Agent instruction: error: expected one of '!', '(', '+', '::', ';', or '<', found '}' in Rust source. Rule triggered.", "label": "SYNTAX_ERROR"}
+{"text": "Static analysis finding: TypeError: forward() takes 2 positional arguments but 3 were given. Method signature mismatch. Action needed immediately.", "label": "TYPE_MISMATCH"}
+{"text": "Agent instruction: [100%] Built target axobrier_core. Build succeeded without errors or warnings. Status code non-zero.", "label": "BUILD_SUCCESS"}
+{"text": "Diagnostic log: FATAL: PORT environment variable undefined. Failed to bind HTTP server to listening port.", "label": "ENV_VAR_MISSING"}
+{"text": "Terminal output: error[E0308]: mismatched types: expected integer type `i32`, found `f64` in arithmetic operation. Rule triggered.", "label": "TYPE_MISMATCH"}
+{"text": "Compiler error: Error: Unable to open schema definition file 'prisma/schema.prisma'. File not found on disk. Fails pipeline gate.", "label": "FILE_NOT_FOUND"}
+{"text": "Runtime alert: error: no matching function for call to 'calculate(double, std::string)'. Candidate expects (int, int). Rule triggered.", "label": "TYPE_MISMATCH"}
+{"text": "FATAL: PORT environment variable undefined. Failed to bind HTTP server to listening port. Action needed immediately.", "label": "ENV_VAR_MISSING"}
+{"text": "Diagnostic log: error: cannot convert 'const char*' to 'int' in assignment. Type conversion prohibited.", "label": "TYPE_MISMATCH"}
+{"text": "unresolved external symbol or missing static library 'libcurl.lib'. Linker input missing. Trace attached.", "label": "MISSING_DEPENDENCY"}
+{"text": "Diagnostic log: npm ERR! package 'zod' is not listed in dependencies or package.json. Status code non-zero.", "label": "MISSING_DEPENDENCY"}
+{"text": "Compiler error: Cannot find module 'express' or its corresponding type declarations. (TS2307) Fails pipeline gate.", "label": "MISSING_DEPENDENCY"}
+{"text": "Console warning: SyntaxError: Identifier 'result' has already been declared in this lexical scope. Trace attached.", "label": "SYNTAX_ERROR"}
+{"text": "Console warning: Build complete: axobrier_core.dll and axobrier_core.lib generated in Release directory.", "label": "BUILD_SUCCESS"}
+{"text": "System notification: TypeError: 'NoneType' object is not callable. Variable holding None was invoked as function. Trace attached.", "label": "TYPE_MISMATCH"}
+{"text": "Traceback: error: cannot convert 'const char*' to 'int' in assignment. Type conversion prohibited. Fails pipeline gate.", "label": "TYPE_MISMATCH"}
+{"text": "Traceback: TypeError: forward() takes 2 positional arguments but 3 were given. Method signature mismatch. (Priority P0).", "label": "TYPE_MISMATCH"}
+{"text": "System notification: FileNotFoundError: [Errno 2] No such file or directory: 'config/settings.yaml'. Status code non-zero.", "label": "FILE_NOT_FOUND"}
+{"text": "System notification: PostgreSQL connection aborted: PG_HOST environment variable was not specified. Trace attached.", "label": "ENV_VAR_MISSING"}
+{"text": "Agent instruction: Vite v5.2.0 ready in 210 ms. Serving production bundle on port 3000. Verify resolution.", "label": "BUILD_SUCCESS"}
+{"text": "Pipeline report: SyntaxError: cannot use import statement outside a module. Missing type: module flag. Trace attached.", "label": "SYNTAX_ERROR"}
+{"text": "Pipeline report: tsc --noEmit completed with 0 errors. TypeScript project compiles cleanly.", "label": "BUILD_SUCCESS"}
+{"text": "Terminal output: Could not find a declaration file for module 'lodash'. Run npm i --save-dev @types/lodash. Rule triggered.", "label": "MISSING_DEPENDENCY"}
+{"text": "Pipeline report: [100%] Built target axobrier_core. Build succeeded without errors or warnings. Status code non-zero.", "label": "BUILD_SUCCESS"}
+{"text": "Terminal output: Value of: result.is_ok() Actual: false Expected: true. GoogleTest assertion failure in TestSuite.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Console warning: pytest: 1 failed, 24 passed. AssertionError: expected 'admin' role but user has 'guest'. Rule triggered.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Runtime alert: unresolved external symbol or missing static library 'libcurl.lib'. Linker input missing. (Priority P0).", "label": "MISSING_DEPENDENCY"}
+{"text": "error: stray '\\' in program. Invalid escape character outside string literal.", "label": "SYNTAX_ERROR"}
+{"text": "Runtime alert: error[E0308]: mismatched types: expected '&str', found struct 'std::string::String'. Fails pipeline gate.", "label": "TYPE_MISMATCH"}
+{"text": "Terminal output: Failed to initialize Stripe client: STRIPE_WEBHOOK_SECRET is not configured in env. Fails pipeline gate.", "label": "ENV_VAR_MISSING"}
+{"text": "Terminal output: ENOENT: no such file or directory, open 'dist/index.html'. File does not exist. Status code non-zero.", "label": "FILE_NOT_FOUND"}
+{"text": "JUnit test failure: org.opentest4j.AssertionFailedError: expected <true> but was <false>. Fails pipeline gate.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Runtime alert: KeyError: 'OPENAI_API_KEY' raised while loading configuration credentials. Rule triggered.", "label": "ENV_VAR_MISSING"}
+{"text": "Diagnostic log: npm ERR! package 'zod' is not listed in dependencies or package.json. Rule triggered.", "label": "MISSING_DEPENDENCY"}
+{"text": "Pipeline report: error: stray '\\' in program. Invalid escape character outside string literal.", "label": "SYNTAX_ERROR"}
+{"text": "Compiler error: error: expected ';' before '}' token at end of scope. Missing closing semicolon. Rule triggered.", "label": "SYNTAX_ERROR"}
+{"text": "error: expected ';' before '}' token at end of scope. Missing closing semicolon.", "label": "SYNTAX_ERROR"}
+{"text": "Diagnostic log: Error: Environment variable DATABASE_URL is not set or is empty in current environment.", "label": "ENV_VAR_MISSING"}
+{"text": "Compiler error: LINK : fatal error LNK1181: cannot open input file 'axobrier_core.lib'. Library file missing. Rule triggered.", "label": "FILE_NOT_FOUND"}
+{"text": "Pipeline report: Vite v5.2.0 ready in 210 ms. Serving production bundle on port 3000. Fails pipeline gate.", "label": "BUILD_SUCCESS"}
+{"text": "FATAL: PORT environment variable undefined. Failed to bind HTTP server to listening port. Action needed immediately.", "label": "ENV_VAR_MISSING"}
+{"text": "Terminal output: ModuleNotFoundError: No module named 'pydantic'. Ensure the package is installed in virtualenv. Fails pipeline gate.", "label": "MISSING_DEPENDENCY"}
+{"text": "Profiler incident: error: no matching function for call to 'calculate(double, std::string)'. Candidate expects (int, int).", "label": "TYPE_MISMATCH"}
+{"text": "Profiler incident: pytest: 1 failed, 24 passed. AssertionError: expected 'admin' role but user has 'guest'. Rule triggered.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Profiler incident: CMake build completed successfully: 0 failed targets, 12 up-to-date targets. Trace attached.", "label": "BUILD_SUCCESS"}
+{"text": "Pipeline report: [100%] Built target axobrier_core. Build succeeded without errors or warnings. Rule triggered.", "label": "BUILD_SUCCESS"}
+{"text": "Profiler incident: FAIL src/auth.test.ts: expects status 200 OK but received 401 Unauthorized response.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Agent instruction: error: stray '\\' in program. Invalid escape character outside string literal.", "label": "SYNTAX_ERROR"}
+{"text": "Diagnostic log: TypeError: unsupported operand type(s) for +: 'int' and 'str'. Invalid type concatenation. (Priority P0).", "label": "TYPE_MISMATCH"}
+{"text": "PostgreSQL connection aborted: PG_HOST environment variable was not specified.", "label": "ENV_VAR_MISSING"}
+{"text": "Compiler error: Cannot open source file 'src/platform/windows_util.cc'. Verify file exists. Rule triggered.", "label": "FILE_NOT_FOUND"}
+{"text": "Terminal output: TypeError: 'NoneType' object is not callable. Variable holding None was invoked as function. Action needed immediately.", "label": "TYPE_MISMATCH"}
+{"text": "Agent instruction: Type '() => void' is not assignable to type 'ReactNode'. Invalid component prop type. Action needed immediately.", "label": "TYPE_MISMATCH"}
+{"text": "Terminal output: error: expected one of '!', '(', '+', '::', ';', or '<', found '}' in Rust source. Verify resolution.", "label": "SYNTAX_ERROR"}
+{"text": "Compiler error: compiler error: file not found: include/custom_math.h cannot be opened for reading. Status code non-zero.", "label": "FILE_NOT_FOUND"}
+{"text": "System notification: test result: ok. 148 passed; 0 failed; 0 ignored; 0 measured. All unit tests green. Trace attached.", "label": "BUILD_SUCCESS"}
+{"text": "KeyError: 'OPENAI_API_KEY' raised while loading configuration credentials.", "label": "ENV_VAR_MISSING"}
+{"text": "Agent instruction: FAIL src/auth.test.ts: expects status 200 OK but received 401 Unauthorized response. Verify resolution.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Terminal output: FAIL src/auth.test.ts: expects status 200 OK but received 401 Unauthorized response. Fails pipeline gate.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Console warning: PostgreSQL connection aborted: PG_HOST environment variable was not specified.", "label": "ENV_VAR_MISSING"}
+{"text": "Static analysis finding: SyntaxError: Unterminated string literal detected at end of line. Missing closing quotation.", "label": "SYNTAX_ERROR"}
+{"text": "Profiler incident: test service::tests::it_authenticates ... FAILED -- assertion left == right failed (left: 404, right: 200). Fails pipeline gate.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Terminal output: panic: runtime error: test assertion failed: expected token count 5, got 0. Status code non-zero.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Pipeline report: Missing environment variable: AZURE_STORAGE_CONNECTION_STRING is required for blob upload. (Priority P0).", "label": "ENV_VAR_MISSING"}
+{"text": "Pipeline report: Expected: [1, 2, 3], Received: [1, 2]. Array length assertion failed in unit test suite. Status code non-zero.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "error[E0308]: mismatched types: expected integer type `i32`, found `f64` in arithmetic operation. Fails pipeline gate.", "label": "TYPE_MISMATCH"}
+{"text": "Terminal output: LINK : fatal error LNK1181: cannot open input file 'axobrier_core.lib'. Library file missing. Trace attached.", "label": "FILE_NOT_FOUND"}
+{"text": "Pipeline report: EnvLookupError: required setting 'APP_SECRET_TOKEN' was not found in environment map. Verify resolution.", "label": "ENV_VAR_MISSING"}
+{"text": "Static analysis finding: error[E0308]: mismatched types: expected '&str', found struct 'std::string::String'.", "label": "TYPE_MISMATCH"}
+{"text": "Runtime alert: Compilation finished in 1.42s. 0 errors, 0 warnings. Build artifact: target/release/server.", "label": "BUILD_SUCCESS"}
+{"text": "FATAL: PORT environment variable undefined. Failed to bind HTTP server to listening port.", "label": "ENV_VAR_MISSING"}
+{"text": "Diagnostic log: test service::tests::it_authenticates ... FAILED -- assertion left == right failed (left: 404, right: 200). Trace attached.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Terminal output: pytest: 154 passed in 3.12s. All test assertions satisfied. Test run complete. Rule triggered.", "label": "BUILD_SUCCESS"}
+{"text": "Terminal output: Missing environment variable: AZURE_STORAGE_CONNECTION_STRING is required for blob upload. Status code non-zero.", "label": "ENV_VAR_MISSING"}
+{"text": "Pipeline report: error: expected primary-expression before ')' token in macro expansion. Trace attached.", "label": "SYNTAX_ERROR"}
+{"text": "Argument of type 'boolean' is not assignable to parameter of type 'Promise<void>'. (TS2345) Status code non-zero.", "label": "TYPE_MISMATCH"}
+{"text": "Agent instruction: error: stray '\\' in program. Invalid escape character outside string literal. Action needed immediately.", "label": "SYNTAX_ERROR"}
+{"text": "tsc --noEmit completed with 0 errors. TypeScript project compiles cleanly. Trace attached.", "label": "BUILD_SUCCESS"}
+{"text": "Console warning: compiler error: file not found: include/custom_math.h cannot be opened for reading. Action needed immediately.", "label": "FILE_NOT_FOUND"}
+{"text": "Static analysis finding: IO error: Failed to open target file 'assets/textures/diffuse.png'. Path does not exist. Verify resolution.", "label": "FILE_NOT_FOUND"}
+{"text": "Runtime alert: Compilation finished in 1.42s. 0 errors, 0 warnings. Build artifact: target/release/server. (Priority P0).", "label": "BUILD_SUCCESS"}
+{"text": "Terminal output: EnvLookupError: required setting 'APP_SECRET_TOKEN' was not found in environment map.", "label": "ENV_VAR_MISSING"}
+{"text": "Profiler incident: FileNotFoundError: [Errno 2] No such file or directory: 'config/settings.yaml'. Fails pipeline gate.", "label": "FILE_NOT_FOUND"}
+{"text": "Traceback: error: expected primary-expression before ')' token in macro expansion. Trace attached.", "label": "SYNTAX_ERROR"}
+{"text": "Static analysis finding: cargo check: Finished `release` profile [optimized] in 2.18s. Binary compiled successfully. Fails pipeline gate.", "label": "BUILD_SUCCESS"}
+{"text": "Compiler error: SyntaxError: Unterminated string literal detected at end of line. Missing closing quotation. Action needed immediately.", "label": "SYNTAX_ERROR"}
+{"text": "error[E0277]: the trait bound 'MyStruct: Clone' is not satisfied. Expected type implementing Clone. Action needed immediately.", "label": "TYPE_MISMATCH"}
+{"text": "Static analysis finding: FileNotFoundError: [Errno 2] No such file or directory: 'config/settings.yaml'. Rule triggered.", "label": "FILE_NOT_FOUND"}
+{"text": "error: no matching function for call to 'calculate(double, std::string)'. Candidate expects (int, int).", "label": "TYPE_MISMATCH"}
+{"text": "Profiler incident: FileNotFoundError: [Errno 2] No such file or directory: 'config/settings.yaml'. Fails pipeline gate.", "label": "FILE_NOT_FOUND"}
+{"text": "Terminal output: FileNotFoundError: [Errno 2] No such file or directory: 'config/settings.yaml'. Verify resolution.", "label": "FILE_NOT_FOUND"}
+{"text": "Runtime alert: ConfigurationError: Missing mandatory environment variable: REDIS_PASSWORD. Fails pipeline gate.", "label": "ENV_VAR_MISSING"}
+{"text": "Terminal output: KeyError: 'OPENAI_API_KEY' raised while loading configuration credentials. Action needed immediately.", "label": "ENV_VAR_MISSING"}
+{"text": "Static analysis finding: Parser error: unexpected EOF while parsing nested parentheses in expression. Status code non-zero.", "label": "SYNTAX_ERROR"}
+{"text": "ModuleNotFoundError: No module named 'pydantic'. Ensure the package is installed in virtualenv.", "label": "MISSING_DEPENDENCY"}
+{"text": "ConfigurationError: Missing mandatory environment variable: REDIS_PASSWORD.", "label": "ENV_VAR_MISSING"}
+{"text": "Agent instruction: error: expected one of '!', '(', '+', '::', ';', or '<', found '}' in Rust source. Action needed immediately.", "label": "SYNTAX_ERROR"}
+{"text": "Profiler incident: Parser error: unexpected EOF while parsing nested parentheses in expression. Verify resolution.", "label": "SYNTAX_ERROR"}
+{"text": "Traceback: ENOENT: no such file or directory, open 'dist/index.html'. File does not exist. (Priority P0).", "label": "FILE_NOT_FOUND"}
+{"text": "System notification: panic: runtime error: test assertion failed: expected token count 5, got 0. (Priority P0).", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Profiler incident: FAILED tests/test_api.py::test_create_user - AssertionError: assert response.status_code == 201. Fails pipeline gate.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "SyntaxError: Identifier 'result' has already been declared in this lexical scope. Trace attached.", "label": "SYNTAX_ERROR"}
+{"text": "Traceback: pytest: 154 passed in 3.12s. All test assertions satisfied. Test run complete. Fails pipeline gate.", "label": "BUILD_SUCCESS"}
+{"text": "Profiler incident: ImportError: cannot import name 'BaseModel' from partially initialized module 'pydantic'.", "label": "MISSING_DEPENDENCY"}
+{"text": "Terminal output: fatal error: boost/asio.hpp: No such file or directory. Header file not found in include paths. (Priority P0).", "label": "MISSING_DEPENDENCY"}
+{"text": "Diagnostic log: LINK : fatal error LNK1181: cannot open input file 'axobrier_core.lib'. Library file missing. (Priority P0).", "label": "FILE_NOT_FOUND"}
+{"text": "Terminal output: ENOENT: no such file or directory, open 'dist/index.html'. File does not exist. Status code non-zero.", "label": "FILE_NOT_FOUND"}
+{"text": "System notification: Vitest test suite failed: expect(received).toBeGreaterThan(expected). Expected > 0, got -1.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Traceback: pytest: 1 failed, 24 passed. AssertionError: expected 'admin' role but user has 'guest'. Fails pipeline gate.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Pipeline report: Vitest test suite failed: expect(received).toBeGreaterThan(expected). Expected > 0, got -1. Status code non-zero.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Terminal output: ENOENT: no such file or directory, open 'dist/index.html'. File does not exist. Rule triggered.", "label": "FILE_NOT_FOUND"}
+{"text": "Console warning: error: stray '\\' in program. Invalid escape character outside string literal. Rule triggered.", "label": "SYNTAX_ERROR"}
+{"text": "Console warning: \u2728 Built in 420ms. Total bundle size: 142.3 kB. Exit code: 0. Production build ready. Action needed immediately.", "label": "BUILD_SUCCESS"}
+{"text": "TypeError: unsupported operand type(s) for +: 'int' and 'str'. Invalid type concatenation. Fails pipeline gate.", "label": "TYPE_MISMATCH"}
+{"text": "Profiler incident: error[E0432]: unresolved import 'tokio'. could not find 'tokio' in crate list. Rule triggered.", "label": "MISSING_DEPENDENCY"}
+{"text": "Console warning: SyntaxError: Identifier 'result' has already been declared in this lexical scope. Fails pipeline gate.", "label": "SYNTAX_ERROR"}
+{"text": "Pipeline report: FAILED tests/test_api.py::test_create_user - AssertionError: assert response.status_code == 201. Trace attached.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Runtime alert: tsc --noEmit completed with 0 errors. TypeScript project compiles cleanly. Status code non-zero.", "label": "BUILD_SUCCESS"}
+{"text": "Diagnostic log: TypeError: forward() takes 2 positional arguments but 3 were given. Method signature mismatch. Fails pipeline gate.", "label": "TYPE_MISMATCH"}
+{"text": "Traceback: error: expected primary-expression before ')' token in macro expansion. Status code non-zero.", "label": "SYNTAX_ERROR"}
+{"text": "Console warning: pytest: 154 passed in 3.12s. All test assertions satisfied. Test run complete. Action needed immediately.", "label": "BUILD_SUCCESS"}
+{"text": "Runtime alert: [100%] Built target axobrier_core. Build succeeded without errors or warnings. Verify resolution.", "label": "BUILD_SUCCESS"}
+{"text": "error[E0432]: unresolved import 'tokio'. could not find 'tokio' in crate list.", "label": "MISSING_DEPENDENCY"}
+{"text": "Pipeline report: error[E0308]: mismatched types: expected `u32`, found `usize` in array indexing. Status code non-zero.", "label": "TYPE_MISMATCH"}
+{"text": "Profiler incident: LINK : fatal error LNK1181: cannot open input file 'axobrier_core.lib'. Library file missing. (Priority P0).", "label": "FILE_NOT_FOUND"}
+{"text": "Diagnostic log: Runtime error: API_KEY not found in process.env. Populate .env file before starting server. Trace attached.", "label": "ENV_VAR_MISSING"}
+{"text": "Terminal output: TypeError: 'NoneType' object is not callable. Variable holding None was invoked as function. Rule triggered.", "label": "TYPE_MISMATCH"}
+{"text": "Terminal output: ModuleNotFoundError: No module named 'pydantic'. Ensure the package is installed in virtualenv. Status code non-zero.", "label": "MISSING_DEPENDENCY"}
+{"text": "Agent instruction: PostgreSQL connection aborted: PG_HOST environment variable was not specified. Verify resolution.", "label": "ENV_VAR_MISSING"}
+{"text": "Runtime alert: ConfigurationError: Missing mandatory environment variable: REDIS_PASSWORD. Verify resolution.", "label": "ENV_VAR_MISSING"}
+{"text": "error[E0308]: mismatched types: expected `u32`, found `usize` in array indexing. Action needed immediately.", "label": "TYPE_MISMATCH"}
+{"text": "System notification: Cannot find module 'express' or its corresponding type declarations. (TS2307) Trace attached.", "label": "MISSING_DEPENDENCY"}
+{"text": "Pipeline report: Error: Unable to open schema definition file 'prisma/schema.prisma'. File not found on disk. Rule triggered.", "label": "FILE_NOT_FOUND"}
+{"text": "Static analysis finding: SyntaxError: Identifier 'result' has already been declared in this lexical scope. Verify resolution.", "label": "SYNTAX_ERROR"}
+{"text": "Diagnostic log: Missing environment variable: AZURE_STORAGE_CONNECTION_STRING is required for blob upload. Rule triggered.", "label": "ENV_VAR_MISSING"}
+{"text": "Pipeline report: \u2728 Built in 420ms. Total bundle size: 142.3 kB. Exit code: 0. Production build ready. Trace attached.", "label": "BUILD_SUCCESS"}
+{"text": "Agent instruction: [100%] Built target axobrier_core. Build succeeded without errors or warnings. Rule triggered.", "label": "BUILD_SUCCESS"}
+{"text": "panic: runtime error: test assertion failed: expected token count 5, got 0.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Diagnostic log: unresolved external symbol or missing static library 'libcurl.lib'. Linker input missing. Trace attached.", "label": "MISSING_DEPENDENCY"}
+{"text": "Profiler incident: fatal: pathspec 'src/legacy/router.ts' did not match any files known to git. Action needed immediately.", "label": "FILE_NOT_FOUND"}
+{"text": "pip: requirement not satisfied: torch>=2.0.0. Missing dependency in virtual environment.", "label": "MISSING_DEPENDENCY"}
+{"text": "Compiler error: assert_eq!(output, expected) failed on iteration 12. Regression test case broke. Rule triggered.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Pipeline report: Parser error: unexpected EOF while parsing nested parentheses in expression. Action needed immediately.", "label": "SYNTAX_ERROR"}
+{"text": "SyntaxError: Unterminated string literal detected at end of line. Missing closing quotation. Verify resolution.", "label": "SYNTAX_ERROR"}
+{"text": "Diagnostic log: npm ERR! package 'zod' is not listed in dependencies or package.json. Fails pipeline gate.", "label": "MISSING_DEPENDENCY"}
+{"text": "Compiler error: Cannot find module 'express' or its corresponding type declarations. (TS2307) Trace attached.", "label": "MISSING_DEPENDENCY"}
+{"text": "Traceback: pytest: 1 failed, 24 passed. AssertionError: expected 'admin' role but user has 'guest'. Fails pipeline gate.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Terminal output: Docker build failed: COPY failed: file not found in build context: Dockerfile.dev. Fails pipeline gate.", "label": "FILE_NOT_FOUND"}
+{"text": "System notification: KeyError: 'OPENAI_API_KEY' raised while loading configuration credentials. Fails pipeline gate.", "label": "ENV_VAR_MISSING"}
+{"text": "Console warning: Type '() => void' is not assignable to type 'ReactNode'. Invalid component prop type. Status code non-zero.", "label": "TYPE_MISMATCH"}
+{"text": "Compiler error: Cannot find module 'express' or its corresponding type declarations. (TS2307) Trace attached.", "label": "MISSING_DEPENDENCY"}
+{"text": "Pipeline report: ImportError: cannot import name 'BaseModel' from partially initialized module 'pydantic'. Status code non-zero.", "label": "MISSING_DEPENDENCY"}
+{"text": "Diagnostic log: FileNotFoundError: [Errno 2] No such file or directory: 'config/settings.yaml'. Rule triggered.", "label": "FILE_NOT_FOUND"}
+{"text": "Static analysis finding: Expected: [1, 2, 3], Received: [1, 2]. Array length assertion failed in unit test suite. (Priority P0).", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Runtime alert: TypeError: forward() takes 2 positional arguments but 3 were given. Method signature mismatch. Verify resolution.", "label": "TYPE_MISMATCH"}
+{"text": "Runtime alert: error[E0432]: unresolved import 'tokio'. could not find 'tokio' in crate list. Action needed immediately.", "label": "MISSING_DEPENDENCY"}
+{"text": "Profiler incident: tsc --noEmit completed with 0 errors. TypeScript project compiles cleanly.", "label": "BUILD_SUCCESS"}
+{"text": "Static analysis finding: tsc --noEmit completed with 0 errors. TypeScript project compiles cleanly. Action needed immediately.", "label": "BUILD_SUCCESS"}
+{"text": "Profiler incident: Compilation finished in 1.42s. 0 errors, 0 warnings. Build artifact: target/release/server. Action needed immediately.", "label": "BUILD_SUCCESS"}
+{"text": "Traceback: os.stat() failed: No such file or directory: '/var/log/audit.log'. Target file missing. Rule triggered.", "label": "FILE_NOT_FOUND"}
+{"text": "Compiler error: IO error: Failed to open target file 'assets/textures/diffuse.png'. Path does not exist. Status code non-zero.", "label": "FILE_NOT_FOUND"}
+{"text": "Compiler error: test service::tests::it_authenticates ... FAILED -- assertion left == right failed (left: 404, right: 200).", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Vitest test suite failed: expect(received).toBeGreaterThan(expected). Expected > 0, got -1.", "label": "TEST_ASSERTION_FAILURE"}
+{"text": "Terminal output: ConfigurationError: Missing mandatory environment variable: REDIS_PASSWORD. Status code non-zero.", "label": "ENV_VAR_MISSING"}
+{"text": "Static analysis finding: error[E0308]: mismatched types: expected `u32`, found `usize` in array indexing. Rule triggered.", "label": "TYPE_MISMATCH"}
+{"text": "Pipeline report: ModuleNotFoundError: No module named 'pydantic'. Ensure the package is installed in virtualenv. Action needed immediately.", "label": "MISSING_DEPENDENCY"}

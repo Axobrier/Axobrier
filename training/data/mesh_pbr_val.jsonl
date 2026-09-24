@@ -1,0 +1,192 @@
+{"text": "Diagnostic log: lod decimation artifact: silhouette collapses at distance. manually preserve outline in low lod mesh generation. Requires immediate remediation.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Avatar clothing export: export selected objects as COLLADA .dae with bind shape matrix aligned to. High severity issue.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Compiler warning: Export settings: use COLLADA (.dae), uncheck include animations, check include armature, and ensure Z-up. Requires immediate remediation.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Diagnostic log: Rigged mesh import error: joints deformed on upload. Re-export COLLADA .dae with engine avatar compatible preset. Requires immediate remediation.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Architecture guideline violation: High physics cost on upload. Replace concave triangle mesh with volumetric convex hull decomposition. Rule violation confirmed.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Production incident: Visual artifact: hair cards showing background through front strands. Enable Alpha Masking to write to. Please investigate.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "physics mesh optimization: decompose non-convex collision mesh into maximum 256 convex hulls. Priority P1 triage.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Compiler warning: Visual artifact: hair cards showing background through front strands. Enable Alpha Masking to write to depth buffer. Please investigate.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Skinning artifact: excessive bone count detected on clavicle vertex. Clamp bone influences to 4 per vertex. Priority P1 triage.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Performance alert: Avatar clothing export: export selected objects as COLLADA .dae with bind shape matrix aligned to.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Geometry export error: draw call limit exceeded. Keep each material surface strictly under 65,536 vertex indices.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Profiler incident report: Engine geometry limit: split mesh into multiple material slots because single material exceeds 65k vertex ceiling.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Runtime telemetry warning: Export settings: use COLLADA (.dae), uncheck include animations, check include armature, and ensure Z-up coordinate system. Requires immediate remediation.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Asset inspection error: z-buffer sorting glitch on layered transparency. use alpha clip or alpha mask instead of alpha blend on foliage and hair. Priority P1 triage.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Architecture guideline violation: Vertex assigned 5 bone weights in vertex group panel. Rigging exceeds the target engine limit of. Fails validation gate.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Profiler incident report: Mesh LOD strategy: Lowest LOD reduced to single quad billboard or 1 triangle for small props to lower streaming cost. Rule violation confirmed.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Static analysis failure: Surface bump details: normal map assigned to separate sampler slot with linear color space interpretation. Requires immediate remediation.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Asset inspection error: Shader setup: pack ambient occlusion into R, perceptual roughness into G, metallic mask into B for glTF export. High severity issue.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Static analysis failure: 4-tier lod hierarchy: bake normal maps from high lod onto medium and low lod meshes to retain visual fidelity. Fix required before merge.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Automated rule check: Normal map baking: bake tangent space normals using standard MikkTSpace tangents; do not pack into ORM image. Rule violation confirmed.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Asset inspection error: mesh validation failed: 81,920 vertices in single material group. partition model into multiple draw calls. High severity issue.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Asset inspection error: PBR material audit: unpack ORM composite map to inspect individual ambient occlusion and roughness channels. Please investigate.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Code review finding: Engine vertex buffer crash: object has 95,000 vertices on single material. Separate mesh into sub-sections under 65k. Please investigate.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Runtime telemetry warning: shading pipeline error: roughness texture placed in red channel instead of green. packing requires r=ao, g=roughness, b=metal. High severity issue.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Production incident: gltf material validator: normaltexture property references independent texture index with standard scale factor. Requires immediate remediation.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Static analysis failure: normal map configuration: tangent space normal map must be authored in separate rgb texture using mikktspace. Priority P1 triage.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Automated rule check: Havok collision engine warning: non-convex geometry in physics shape. Run convex hull decomposition tool in Blender. High severity issue.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Production incident: PBR material export: separate normal map in tangent space format with unit length normal vectors. Priority P1 triage.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Performance alert: Normal map configuration: tangent space normal map must be authored in separate RGB texture using MikkTSpace. Requires immediate remediation.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Profiler incident report: shoulder joint deformation artifact: vertex is weighted to 5 bones simultaneously in avatar rig. Fix required before merge.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Static analysis failure: Hair strands render in wrong depth order due to alpha blending. Set alpha cutoff threshold to 0.5 with MASK mode. Rule violation confirmed.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Diagnostic log: bake texture setup: combine separate ao, roughness, and metalness passes into composite rgb orm bitmap. High severity issue.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Production incident: 4-tier lod hierarchy: bake normal maps from high lod onto medium and low lod meshes to retain visual fidelity. High severity issue.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Diagnostic log: Physics shape analysis: collision model contains degenerate holes and self-intersections. Decompose into simple convex polyhedra. Please investigate.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Architecture guideline violation: shader setup: pack ambient occlusion into r, perceptual roughness into g, metallic mask into b for gltf export. Rule violation confirmed.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Production incident: 4-tier LOD hierarchy: bake normal maps from High LOD onto Medium and Low LOD meshes to retain visual fidelity. Requires immediate remediation.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Asset inspection error: Character deformation artifact: vertex weighted to multiple bones exceeding the maximum 4 influences. High severity issue.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Automated rule check: texture packing: combine ambient occlusion, roughness, and metallic into a single rgb texture image. Fails validation gate.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Runtime telemetry warning: Collision geometry error: physics shape has too many vertices. Simplify collision hull to reduce land impact weight. Requires immediate remediation.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Performance alert: High physics cost on upload. Replace concave triangle mesh with volumetric convex hull decomposition. Requires immediate remediation.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Engine vertex buffer crash: object has 95,000 vertices on single material. Separate mesh into sub-sections under 65k.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Diagnostic log: vertex weights exceed 4 per vertex limit in avatar armature. pruning weights below 0.05 threshold. Priority P1 triage.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Static analysis failure: PBR material audit: unpack ORM composite map to inspect individual ambient occlusion and roughness channels. Requires immediate remediation.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Static analysis failure: Vertex count exceeded: 16-bit hardware index buffer cannot address more than 65,536 vertices per draw surface.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Production incident: Tangent space normal map error: DirectX Y- inverted normal map detected. Invert green channel for. Fix required before merge.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Automated rule check: Texture packing: combine ambient occlusion, roughness, and metallic into a single RGB texture image. Please investigate.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Compiler warning: Fitted mesh check: bone weights per vertex > 4 detected on skirt rig. Normalize and limit total to 4. Requires immediate remediation.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Automated rule check: Alpha fighting on eyelashes and hair mesh. Avoid Alpha Blending; configure glTF material alphaMode to MASK. Fails validation gate.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Profiler incident report: transparent geometry sorting error. hair cards must use alphamode mask to ensure proper rasterization depth order. Fix required before merge.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Physics cost penalty: triangle list physics shape exceeds limit. Switch physics type to Convex Hull in mesh upload.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Profiler incident report: Havok collision engine warning: non-convex geometry in physics shape. Run convex hull decomposition tool in Blender. High severity issue.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "z-buffer sorting glitch on layered transparency. use alpha clip or alpha mask instead of alpha blend on foliage and hair.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Static analysis failure: physics cost penalty: triangle list physics shape exceeds limit. switch physics type to convex hull in mesh upload.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Profiler incident report: LOD decimation artifact: silhouette collapses at distance. Manually preserve outline in Low LOD mesh generation.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Runtime telemetry warning: Mesh attachment import: DAE file missing bind pose or joint hierarchy. Verify OpenCOLLADA export profile. Rule violation confirmed.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Asset inspection error: physics mesh optimization: decompose non-convex collision mesh into maximum 256 convex hulls. Requires immediate remediation.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Code review finding: Bake texture setup: combine separate AO, Roughness, and Metalness passes into composite RGB ORM bitmap. Please investigate.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Runtime telemetry warning: shader setup: pack ambient occlusion into r, perceptual roughness into g, metallic mask into b for gltf export. Priority P1 triage.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Runtime telemetry warning: geometry export error: draw call limit exceeded. keep each material surface strictly under 65,536 vertex indices. Fix required before merge.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Mesh skinning error: joint deformation artifact caused by more than 4 bone weights on vertex.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Asset inspection error: physics mesh optimization: decompose non-convex collision mesh into maximum 256 convex hulls. Requires immediate remediation.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Automated rule check: Shading pipeline error: roughness texture placed in Red channel instead of Green. Packing requires R=AO, G=Roughness, B=Metal. High severity issue.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Land impact optimization: generate 4 manual levels of detail (High, Medium, Low, Lowest) to minimize download weight. Fails validation gate.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Automated rule check: Visual artifact: hair cards showing background through front strands. Enable Alpha Masking to write to depth buffer. Requires immediate remediation.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Profiler incident report: mesh skinning error: joint deformation artifact caused by more than 4 bone weights on vertex.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Profiler incident report: Mesh import error: surface 0 contains 72,000 vertices, exceeding the 65,536 (16-bit index) vertex buffer limit. Requires immediate remediation.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Performance alert: transparent geometry sorting error. hair cards must use alphamode mask to ensure proper rasterization depth order.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Compiler warning: Land impact optimization: generate 4 manual levels of detail (High, Medium, Low, Lowest) to minimize. Priority P1 triage.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Code review finding: Transparent geometry sorting error. Hair cards must use alphaMode MASK to ensure proper rasterization depth order. Rule violation confirmed.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Profiler incident report: High physics cost on upload. Replace concave triangle mesh with volumetric convex. Rule violation confirmed.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Code review finding: z-buffer sorting glitch on layered transparency. use alpha clip or alpha mask instead of alpha blend on foliage and hair.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Automated rule check: Mesh validation failed: 124 vertices have more than 4 bone weights assigned. Apply limit total 4 in Blender. Fix required before merge.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Runtime telemetry warning: Physics mesh optimization: decompose non-convex collision mesh into maximum 256 convex hulls. Fix required before merge.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Architecture guideline violation: Character deformation artifact: vertex weighted to multiple bones exceeding the maximum 4 influences. Fix required before merge.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Static analysis failure: Blender DAE export setup: check OpenCOLLADA format, include armatures, and apply rotation and scale. High severity issue.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Code review finding: shading pipeline error: roughness texture placed in red channel instead of green. packing requires r=ao, g=roughness, b=metal.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Profiler incident report: Physics hull decomposition: generate watertight convex collision hulls without internal faces or concave pockets. Priority P1 triage.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Architecture guideline violation: vertex count exceeded: 16-bit hardware index buffer cannot address more than 65,536 vertices per draw surface. Requires immediate remediation.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Diagnostic log: Physics hull decomposition: generate watertight convex collision hulls without internal faces or concave pockets. Fails validation gate.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Production incident: gltf material validator: normaltexture property references independent texture index with standard scale factor. Please investigate.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Compiler warning: Collision geometry error: physics shape has too many vertices. Simplify collision hull to reduce land. Fails validation gate.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Asset inspection error: Vertex count exceeded: 16-bit hardware index buffer cannot address more than 65,536 vertices per. Please investigate.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Profiler incident report: Avatar clothing export: export selected objects as COLLADA .dae with bind shape matrix aligned to avatar skeleton. Rule violation confirmed.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Asset inspection error: avatar upload rejection: vertex has 5 bone weights. real-time mesh skinning requires max 4 influences. Requires immediate remediation.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Asset inspection error: COLLADA validation error: root bone transform matrix non-standard. Export with avatar compatibility flags enabled.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Profiler incident report: Texture packing: combine ambient occlusion, roughness, and metallic into a single RGB texture image. Fix required before merge.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Runtime telemetry warning: Level of detail reduction: High LOD 10,000 tris, Medium LOD 2,500 tris, Low LOD 500 tris, Lowest LOD 20 tris. Fix required before merge.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Z-buffer sorting glitch on layered transparency. Use Alpha Clip or Alpha Mask instead of Alpha Blend on foliage and hair.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Performance alert: Texture packing: combine ambient occlusion, roughness, and metallic into a single RGB texture image. Fails validation gate.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Diagnostic log: Transparent geometry sorting error. Hair cards must use alphaMode MASK to ensure proper rasterization depth order. Priority P1 triage.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Asset inspection error: 4-tier lod hierarchy: bake normal maps from high lod onto medium and low lod meshes to retain visual fidelity. Please investigate.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Profiler incident report: rigging error: vertex group table has 6 bone influences on elbow joint. engine will discard lowest weights. Rule violation confirmed.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Code review finding: Surface bump details: normal map assigned to separate sampler slot with linear color. Please investigate.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Vertex count exceeded: 16-bit hardware index buffer cannot address more than 65,536 vertices per draw surface. Fails validation gate.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Production incident: Mesh import error: surface 0 contains 72,000 vertices, exceeding the 65,536 (16-bit index) vertex buffer limit. Rule violation confirmed.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Compiler warning: Physics hull decomposition: generate watertight convex collision hulls without internal faces or. Fix required before merge.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Production incident: upload weight penalty: high land impact caused by unoptimized low and lowest lod meshes. decimate geometry progressively. High severity issue.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Profiler incident report: High physics cost on upload. Replace concave triangle mesh with volumetric convex hull decomposition. Please investigate.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Character deformation artifact: vertex weighted to multiple bones exceeding the maximum 4 influences.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Asset inspection error: Vertex weights exceed 4 per vertex limit in avatar armature. Pruning weights below 0.05 threshold. Please investigate.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Static analysis failure: Real-time engine rigged export: export .dae with transformation matrix applied and armature hierarchy preserved. Please investigate.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Code review finding: Blender DAE export setup: check OpenCOLLADA format, include armatures, and apply rotation and scale. Please investigate.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Production incident: Download weight reduction: Lowest LOD triangle count must be kept below 50 triangles to prevent extreme land impact. Fails validation gate.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Static analysis failure: glTF material validator: normalTexture property references independent texture index with standard scale factor. Rule violation confirmed.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Profiler incident report: z-buffer sorting glitch on layered transparency. use alpha clip or alpha mask instead of alpha blend on foliage and hair. Rule violation confirmed.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Skinning artifact: excessive bone count detected on clavicle vertex. Clamp bone influences to 4 per vertex.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Index buffer overflow: triangle indices exceed 65,535 limit. Subdivide object into separate material sub-meshes.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Production incident: glTF material validator: normalTexture property references independent texture index with standard scale factor. High severity issue.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Architecture guideline violation: lod decimation artifact: silhouette collapses at distance. manually preserve outline in low lod mesh generation. Fix required before merge.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Asset inspection error: land impact optimization: generate 4 manual levels of detail (high, medium, low, lowest) to minimize download weight. High severity issue.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Static analysis failure: avatar rigging inspection: bone weights per vertex exceed limit; prune lowest influences. High severity issue.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Asset inspection error: Rigged mesh import error: joints deformed on upload. Re-export COLLADA .dae with engine avatar. Priority P1 triage.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Diagnostic log: Tangent space normal map error: DirectX Y- inverted normal map detected. Invert green channel for OpenGL/glTF standard. High severity issue.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Performance alert: shader setup: pack ambient occlusion into r, perceptual roughness into g, metallic mask into b for gltf export.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Static analysis failure: PBR material export: separate normal map in tangent space format with unit length. Priority P1 triage.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Compiler warning: Havok collision engine warning: non-convex geometry in physics shape. Run convex hull decomposition tool. Fix required before merge.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Diagnostic log: Real-time engine rigged export: export .dae with transformation matrix applied and armature hierarchy preserved.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Profiler incident report: COLLADA export configuration for avatar mesh: enable engine compatible matrix transforms and apply unit scale. Priority P1 triage.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Compiler warning: Character deformation artifact: vertex weighted to multiple bones exceeding the maximum 4 influences. Please investigate.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Avatar rigging inspection: bone weights per vertex exceed limit; prune lowest influences. Priority P1 triage.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Production incident: Blender DAE export setup: check OpenCOLLADA format, include armatures, and apply rotation and scale. Requires immediate remediation.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Profiler incident report: High physics cost on upload. Replace concave triangle mesh with volumetric convex hull decomposition. Fix required before merge.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Compiler warning: Rigging error: vertex group table has 6 bone influences on elbow joint. Engine will discard lowest weights. Fails validation gate.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Asset inspection error: LOD decimation artifact: silhouette collapses at distance. Manually preserve outline in Low LOD mesh generation.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Diagnostic log: PBR material audit: unpack ORM composite map to inspect individual ambient occlusion and roughness channels. Fix required before merge.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Compiler warning: Material channel setup: Occlusion mapped to Red channel, Roughness to Green channel, Metallic to Blue channel. Priority P1 triage.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Asset inspection error: Real-time engine rigged export: export .dae with transformation matrix applied and armature hierarchy preserved. Priority P1 triage.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Static analysis failure: Z-buffer sorting glitch on layered transparency. Use Alpha Clip or Alpha Mask instead of Alpha Blend on foliage and hair. Fix required before merge.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "COLLADA export configuration for avatar mesh: enable engine compatible matrix transforms and apply unit scale.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Profiler incident report: LOD decimation artifact: silhouette collapses at distance. Manually preserve outline in Low LOD mesh generation.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Production incident: Texture packing: combine ambient occlusion, roughness, and metallic into a single RGB texture image. Rule violation confirmed.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Asset inspection error: Mesh LOD strategy: Lowest LOD reduced to single quad billboard or 1 triangle for small props to lower streaming cost. Please investigate.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Shader setup: normal texture must use non-color data space and OpenGL Y+ tangent normal orientation.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Runtime telemetry warning: Optimize streaming performance: author custom simplified meshes for all 4 LOD tiers instead of using auto-decimation.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Runtime telemetry warning: Skinning artifact: excessive bone count detected on clavicle vertex. Clamp bone influences to 4 per vertex. Fails validation gate.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Diagnostic log: Mesh LOD strategy: Lowest LOD reduced to single quad billboard or 1 triangle for small props to lower streaming cost. Requires immediate remediation.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Diagnostic log: Mesh validation failed: 124 vertices have more than 4 bone weights assigned. Apply limit total 4 in Blender. High severity issue.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Asset inspection error: Upload weight penalty: high land impact caused by unoptimized Low and Lowest LOD meshes. Decimate geometry progressively. Requires immediate remediation.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Compiler warning: Shading pipeline error: roughness texture placed in Red channel instead of Green. Packing requires R=AO,.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Static analysis failure: Mesh attachment import: DAE file missing bind pose or joint hierarchy. Verify OpenCOLLADA export profile. Please investigate.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Automated rule check: Physics shape analysis: collision model contains degenerate holes and self-intersections. Decompose into simple convex polyhedra. Fails validation gate.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Production incident: visual artifact: hair cards showing background through front strands. enable alpha masking to write to depth buffer. Fix required before merge.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Static analysis failure: Z-buffer sorting glitch on layered transparency. Use Alpha Clip or Alpha Mask instead of Alpha Blend on foliage and hair. High severity issue.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Static analysis failure: Mesh import error: surface 0 contains 72,000 vertices, exceeding the 65,536 (16-bit index) vertex. Requires immediate remediation.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Compiler warning: Normal map configuration: tangent space normal map must be authored in separate RGB texture using MikkTSpace. Requires immediate remediation.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Compiler warning: Hair strands render in wrong depth order due to alpha blending. Set alpha cutoff threshold to 0.5 with MASK mode. Requires immediate remediation.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Diagnostic log: Bake texture setup: combine separate AO, Roughness, and Metalness passes into composite RGB ORM bitmap. Fails validation gate.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Automated rule check: Hair strands render in wrong depth order due to alpha blending. Set alpha cutoff threshold to 0.5 with MASK mode. Fix required before merge.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Profiler incident report: Mesh LOD strategy: Lowest LOD reduced to single quad billboard or 1 triangle for small props to lower streaming cost. Requires immediate remediation.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Runtime telemetry warning: COLLADA validation error: root bone transform matrix non-standard. Export with avatar compatibility flags enabled. Fix required before merge.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Static analysis failure: Hair strands render in wrong depth order due to alpha blending. Set alpha cutoff threshold to 0.5 with MASK mode. Priority P1 triage.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Profiler incident report: glTF 2.0 PBR standard: normal map is decoupled from ORM packed texture and assigned to its own texture sampler. Fix required before merge.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Runtime telemetry warning: Mesh attachment import: DAE file missing bind pose or joint hierarchy. Verify OpenCOLLADA.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Runtime telemetry warning: mesh validation failed: 81,920 vertices in single material group. partition model into multiple draw calls. High severity issue.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Automated rule check: Packing glTF ORM map: Red = AO, Green = Roughness, Blue = Metallic. Decouple base color from surface properties. Fails validation gate.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Architecture guideline violation: Error: vertex group count for vertex 4829 exceeds 4 bone influences. Mesh deformation requires weight pruning. Priority P1 triage.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Production incident: Engine vertex buffer crash: object has 95,000 vertices on single material. Separate mesh into sub-sections.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Runtime telemetry warning: Mesh attachment import: DAE file missing bind pose or joint hierarchy. Verify OpenCOLLADA export profile. High severity issue.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Asset inspection error: geometry export error: draw call limit exceeded. keep each material surface strictly under 65,536 vertex indices. Please investigate.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Performance alert: glTF material validator: normalTexture property references independent texture index with standard scale factor. Please investigate.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Profiler incident report: COLLADA validation error: root bone transform matrix non-standard. Export with avatar compatibility. Priority P1 triage.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Architecture guideline violation: avatar upload rejection: vertex has 5 bone weights. real-time mesh skinning requires max 4 influences.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Runtime telemetry warning: Normal map configuration: tangent space normal map must be authored in separate RGB texture using MikkTSpace.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Profiler incident report: Collision geometry error: physics shape has too many vertices. Simplify collision hull to reduce land impact weight. Priority P1 triage.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Automated rule check: Texture packing: combine ambient occlusion, roughness, and metallic into a single RGB. Requires immediate remediation.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "geometry export error: draw call limit exceeded. keep each material surface strictly under 65,536 vertex indices. Please investigate.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Architecture guideline violation: material partitioning required: high-poly sculpt exceeds 65k vertex threshold. split mesh across multiple materials. Fails validation gate.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Runtime telemetry warning: normal map configuration: tangent space normal map must be authored in separate rgb texture using mikktspace. Fix required before merge.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Static analysis failure: Tangent space normal map error: DirectX Y- inverted normal map detected. Invert green channel for. Please investigate.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Runtime telemetry warning: alpha fighting on eyelashes and hair mesh. avoid alpha blending; configure gltf material alphamode to mask. Fails validation gate.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Profiler incident report: High physics cost on upload. Replace concave triangle mesh with volumetric convex. Priority P1 triage.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Compiler warning: Index buffer overflow: triangle indices exceed 65,535 limit. Subdivide object into separate material sub-meshes. Rule violation confirmed.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Runtime telemetry warning: Real-time engine rigged export: export .dae with transformation matrix applied and armature hierarchy preserved. Rule violation confirmed.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Static analysis failure: physics shape analysis: collision model contains degenerate holes and self-intersections. decompose into simple convex polyhedra. Priority P1 triage.", "label": "CONVEX_HULL_PHYSICS_DECOMP"}
+{"text": "Asset inspection error: gltf 2.0 pbr standard: normal map is decoupled from orm packed texture and assigned to its own texture sampler.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "gltf material validator: normaltexture property references independent texture index with standard scale factor. Priority P1 triage.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Asset inspection error: Index buffer overflow: triangle indices exceed 65,535 limit. Subdivide object into separate material sub-meshes.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Engine geometry limit: split mesh into multiple material slots because single material exceeds 65k vertex ceiling.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Performance alert: Material channel setup: Occlusion mapped to Red channel, Roughness to Green channel, Metallic to. Requires immediate remediation.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Asset inspection error: hair strands render in wrong depth order due to alpha blending. set alpha cutoff threshold to 0.5 with mask mode. Priority P1 triage.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Runtime telemetry warning: 4-tier lod hierarchy: bake normal maps from high lod onto medium and low lod meshes to retain visual fidelity. High severity issue.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Automated rule check: Vertex weights exceed 4 per vertex limit in avatar armature. Pruning weights below 0.05 threshold. High severity issue.", "label": "MAX_4_BONE_INFLUENCES"}
+{"text": "Architecture guideline violation: COLLADA export configuration for avatar mesh: enable engine compatible matrix transforms and apply unit scale. Fails validation gate.", "label": "DAE_ARMATURE_RIGID_EXPORT"}
+{"text": "Automated rule check: Land impact optimization: generate 4 manual levels of detail (High, Medium, Low, Lowest) to minimize. High severity issue.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Production incident: alpha sorting artifact: transparent hair cards flickering in viewport. change material alpha mode from blend to mask. High severity issue.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Automated rule check: Material channel setup: Occlusion mapped to Red channel, Roughness to Green channel, Metallic to Blue channel. Please investigate.", "label": "ORM_TEXTURE_PACKING"}
+{"text": "Land impact optimization: generate 4 manual levels of detail (High, Medium, Low, Lowest) to minimize download weight.", "label": "LOD_4_REDUCTION_STRATEGY"}
+{"text": "Performance alert: Geometry export error: draw call limit exceeded. Keep each material surface strictly under 65,536 vertex indices. Fails validation gate.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Runtime telemetry warning: PBR material export: separate normal map in tangent space format with unit length normal vectors. High severity issue.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
+{"text": "Performance alert: Engine geometry limit: split mesh into multiple material slots because single material exceeds 65k vertex ceiling. Please investigate.", "label": "LIMIT_65K_VERTICES_PER_SURFACE"}
+{"text": "Code review finding: alpha sorting artifact: transparent hair cards flickering in viewport. change material alpha mode from blend to mask. Please investigate.", "label": "ALPHA_MODE_MASK_FOR_HAIR"}
+{"text": "Architecture guideline violation: Shader setup: normal texture must use non-color data space and OpenGL Y+ tangent normal orientation.", "label": "GLTF_PBR_SEPARATE_NORMAL"}
